@@ -1,3 +1,6 @@
+#ifndef PECA_H_
+#define PECA_H_
+
 typedef struct {
 
   char tipoPeca [7];
@@ -6,6 +9,8 @@ typedef struct {
   int primMov;
   
 }Peca, *PtrPeca;
+
+#endif
 
 
 
