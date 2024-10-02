@@ -26,11 +26,13 @@ void iniciarUI(){
 		}
 		else{
 		
-			winSurface = SDL_GetWindowSurface( win );
+			while(true){
+				winSurface = SDL_GetWindowSurface( win );
 			
-			SDL_FillRect( winSurface, NULL, SDL_MapRGB( winSurface->format, 255, 255, 255 ) );
+				SDL_FillRect( winSurface, NULL, SDL_MapRGB( winSurface->format, 255, 255, 255 ) );
 			
-			SDL_UpdateWindowSurface( win );
+				SDL_UpdateWindowSurface( win );
+			}
 		}
 	}
 }
