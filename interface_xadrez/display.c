@@ -10,6 +10,11 @@ void display(){
 	prepararDesenho();
 	
  	glColor3f(1.0, 0.0, 0.0);
+	
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	
+	glTranslatef(-40.0, -40.0, -20.0);
  	
  	glPushMatrix();
  	

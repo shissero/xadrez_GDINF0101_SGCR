@@ -2,6 +2,7 @@
 
 #include"iniciar_ui.h"
 #include"display.h"
+#include"funcao_mouse.h"
 
 void iniciarUI(int *argc, char** argv){
 
@@ -19,6 +20,8 @@ void iniciarUI(int *argc, char** argv){
 	// Tell GLUT that whenever the main window needs to be repainted that it
 	// should call the function display().
 	glutDisplayFunc(display);
+	
+	glutMouseFunc(funcaoMouse);
 
 	// Tell GLUT to start reading and processing events.  This function
 	// never returns; the program only exits when the user closes the main
