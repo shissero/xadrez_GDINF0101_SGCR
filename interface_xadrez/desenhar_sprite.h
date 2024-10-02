@@ -8,6 +8,6 @@
 
 #define PEAO 0
 
-void desenharSprite(int);
+void desenharSprite(int, float, float);
 
 #endif

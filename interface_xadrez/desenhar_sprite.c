@@ -2,18 +2,19 @@
 #include <stdio.h>
 
 #include"desenhar_quadrado.h"
+#include"desenhar_tabuleiro.h"
 #include"desenhar_sprite.h"
 #include"obter_tex_de_arquivo.h"
 
 // Função implementada para desenhar sprites 16x16 com pixels RGBA extraídas de arquivos contendo somente com os bytes 
-
-void desenharSprite(int tipo_sprite){
+// Recebe uma constante que determina a sprite a ser desenhada, e mais dois float para altura e largura máximas que a sprite pode ter
+void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 
 	
-	// Este ponteiro conterá todos os bytes que compõem a sprite
-	//GLubyte *spr_buffer = (GLubyte *)malloc(SPRITE_BYTES);
+	// Calculamos o tamanho dos pixels em função de uma das dimensões máximas e da dimençao correstpondente na sprite;
+	float tam_pixel = max_largura/16;
 	
-	GLubyte spr_buffer[16][16][4]; // Maybe the problem is that this is a signed byte
+	GLubyte spr_buffer[16][16][4];
 	
 	GLubyte *ptr_buffer = &spr_buffer;
 
@@ -28,35 +29,39 @@ void desenharSprite(int tipo_sprite){
 	
 	// Move-se a origem do sistema para a posição do topo da sprite
 	// As informações de pixel começam da linha no topo da imagem
-	glTranslatef(0.0, 15.0, 0.0);
+	// Como a linha de baixo vai ser desenhada em 0.0, multiplicamos tam_pixel pelo número de linhas a desenhar menos um.
+	glTranslatef(0.0, 15*tam_pixel, 0.0);
 	
 	
 	for(int linha = 0; linha < 16; linha++){
 	
+		// A matriz atual é copiada para facilitar o retorno ao início de linha para desenhar a linha seguinte
 		glPushMatrix();
 		
-		for(int coluna = 0; coluna < 16; coluna++){
 		
-			printf("\nO pixel %d,%d e %hhx %hhx %hhx %hhx\n", linha, coluna, spr_buffer[linha][coluna][0], spr_buffer[linha][coluna][1], spr_buffer[linha][coluna][2], spr_buffer[linha][coluna][3]);
+		// Aqui desenhamos as linhas de pixels
+		for(int coluna = 0; coluna < 16; coluna++){
 			
-			if(spr_buffer[linha][coluna][3] == 0x00){
 			
-				printf("Achei um pixel trasparente\n");
+			// Testa-se o pixel não é transparente. Se ele for, não é necessário desenhá-lo
+			if(spr_buffer[linha][coluna][3] != 0x00){
 			
-				glColor4ub(0x00, 0x00, 0xff, 0xff);
-			}
-			else{
 				glColor4ub(spr_buffer[linha][coluna][0], spr_buffer[linha][coluna][1], spr_buffer[linha][coluna][2], spr_buffer[linha][coluna][3]);
+				
+				desenharQuadrado(0.0, 0.0, tam_pixel);
 			}
 	
-			desenharQuadrado(0.0, 0.0, PIXEL_SIZE);
 			
-			glTranslatef(PIXEL_SIZE, 0.0, 0.0);
+			// Move-se a origem do sistema para a direita, para desenhar o próximo pixel
+			glTranslatef(tam_pixel, 0.0, 0.0);
 		}
 		
+		// A origem do sistema agora volta para o início da linha de pixels
 		glPopMatrix();
 		
-		glTranslatef(0.0, -PIXEL_SIZE, 0.0);
+		
+		// Move-se a origem do sistema um pixel para baixo para desenhar a próxima linha
+		glTranslatef(0.0, -tam_pixel, 0.0);
 	}
 	
 }

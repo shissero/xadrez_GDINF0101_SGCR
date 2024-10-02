@@ -1,7 +1,7 @@
 #include<GL/glut.h>
 
 #include"desenhar_quadrado.h"
-#include"desenhar_sprite.h"
+#include"desenhar_tabuleiro.h"
 #include"display.h"
 #include"preparar_desenho.h"
 
@@ -13,26 +13,9 @@ void display(){
  	
  	glPushMatrix();
  	
- 	
- 	for(int i = 0, offset = 20; i < 8; i++){
-
- 		for(int j = 0; j < 4; j++){
- 		
- 			desenharQuadrado(0.0, 0.0, 10.0);
- 			
- 			glTranslatef(offset, 0.0, 0.0);
- 		}
- 		
- 		offset = -offset;
- 		
- 		glTranslatef(offset/2, 10.0, 0.0);
- 	}
+ 	desenharTabuleiro(PLANO_ESQ, PLANO_DIR, PLANO_INF, PLANO_SUP);
  	
  	glPopMatrix();
- 	
- 	glTranslatef(10.0, 20.0, 5.0);
- 	
- 	desenharSprite(PEAO);
  	
  	glFlush();
 }

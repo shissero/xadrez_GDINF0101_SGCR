@@ -10,7 +10,7 @@ void prepararDesenho(){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	
-	glOrtho(-40.0, 40.0, -40.0, 40.0, -40.0, 40.0);
+	glOrtho(PLANO_ESQ, PLANO_DIR, PLANO_INF, PLANO_SUP, PLANO_PROX, PLANO_DIST);
 	
 	glTranslatef(-40.0, -40.0, -20.0);
 }
