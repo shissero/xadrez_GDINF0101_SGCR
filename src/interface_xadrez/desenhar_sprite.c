@@ -21,7 +21,7 @@ void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 	switch(tipo_sprite){
 	
 		case PEAO:
-			obterTexDeArquivo("src/interface_xadrez/peao_16_tex", ptr_buffer, SPRITE_BYTES);
+			obterTexDeArquivo("src/interface_xadrez/sprites/peao_16_tex", ptr_buffer, SPRITE_BYTES);
 			break;
 	}
 	

@@ -24,12 +24,6 @@ float converterCoordenada(float coordenada, float inf_inicial, float sup_inicial
 
 	float matriz[2][2] = { { coordenada - inf_inicial, inf_final }, { coordenada - sup_inicial, sup_final } };
 	
-	printf("\n\nCoordenada = %f\nm = %f\nn = %f\np = %f\nq = %f\n", coordenada, inf_inicial, sup_inicial, inf_final, sup_final);
-	
-	printf("coordenada - inf_final = %f", coordenada - inf_final);
-	
-	printf("\n\n %f %f\n%f %f\n", matriz[0][0], matriz[0][1], matriz[1][0], matriz[1][1]);
-	
 	if(inverter){
 	
 		matriz[0][1] = sup_final;
