@@ -31,6 +31,7 @@ void desenharTabuleiro(float lim_esquerdo, float lim_direito, float lim_inferior
  			
  			for(int j = 0; j < 8; j++){
  		
+	 			// Todas as casas do tabuleiro cuja soma das coordenadas é par têm a mesma cor. O mesmo vale para as ímpares
 	 			if( (i + j) % 2 ){
 	 			
 	 				glColor3fv(cor_escura);

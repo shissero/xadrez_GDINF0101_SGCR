@@ -7,13 +7,11 @@
 
 void funcaoMouse(int botao, int estado, int x, int y){
 
-	int coord_tela[4];
+	int coord_casa[2];
 	
-	
-	
-	//obterCasaClicada(x, y, coord_tela);
+	obterCasaClicada(x, y, coord_casa);
 	
 	printf("Houve um evento de mouse em %d, %d\n", x, y);
 	
-	printf("Coordenadas transladadas: %f\n", converterCoordenada(y, 0, 800, 1, 9, 1));
+	printf("Casa correspondente: %d, %d\n", coord_casa[0], coord_casa[1]);
 }
