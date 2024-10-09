@@ -1,20 +1,21 @@
 #include <stdio.h>
-#include "bispo.h"
+#include <string.h>
+#include "peca.h"
+#include "inicializarpeca.h"
+#include "inicializarpeca.c"
+#include "colateralmoves.h"
+#include "colateralmoves.c"
 
+void cria_bispo(Peca *bispo) {
 
- //função para gerar movimentos do bispo
- void bispomove (int linha, int coluna) {
- 
- //Verificação dos limites do tabuleiro
- if (linha >= 1 && linha <= 8 && coluna <= 8 && coluna >= 1) {
-    
-    //nordeste
-    for (int i = 1; linha - i >= 1 && coluna + i <= 8; i++) 
-    //noroeste
-    for (int i = 1; linha - i >= 1 && coluna - i >= 1; i++)
-    //sudeste
-    for (int i = 1; linha + i <= 8 && coluna + i <= 8; i++)
-    //sudoeste
-    for (int i = 1; linha + i <= 8 && coluna - i >= 1; i++)
-    
- }
+    // Inicializa a peça
+    char tipoPeca[] = "Bispo"; // Tipo da peça
+    int cor = 0; // 0 é branco e 1 é preto
+    int coord[2] = {4, 4}; // Posição inicial da torre (4, 4) (só pra testar)
+    int primMov = 1; // Inicializa como primeiro movimento
+
+    // Função para inicializar a peça
+    inicializarPeca(&bispo, tipoPeca, cor, coord);
+    // Gera movimentos colaterais do bispo
+    colateralmoves(bispo.posicao[1], bispo.posicao[0]);
+}

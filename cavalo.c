@@ -3,19 +3,20 @@
 #include "peca.h"
 #include "inicializarpeca.h"
 #include "inicializarpeca.c"
-#include "reimoves.h"
-#include "reimoves.c"
+#include "cavalomoves.h"
+#include "cavalomoves.c"
+#include "cavalo.h"
 
-void cria_rei(Peca *rei) {
+void cria_cavalo(Peca *cavalo) {
 
     // Inicializa a peça
-    char tipoPeca[] = "Rei"; // Tipo da peça
+    char tipoPeca[] = "Cavalo"; // Tipo da peça
     int cor = 0; // 0 é branco e 1 é preto
     int coord[2] = {4, 4}; // Posição inicial da torre (4, 4) (só pra testar)
     int primMov = 1; // Inicializa como primeiro movimento
 
     // Chama a função para inicializar a peça
-    inicializarPeca(&rei, tipoPeca, cor, coord);
-    // Gera os movimentos cardeais do rei
-    reimoves(rei.posicao[1], rei.posicao[0]);
+    inicializarPeca(&cavalo, tipoPeca, cor, coord);
+    // Gera os movimentos cardeais do cavalo
+    cavalomoves(cavalo.posicao[1], cavalo.posicao[0]);
 }
