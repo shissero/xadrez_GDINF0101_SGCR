@@ -1,7 +1,22 @@
-#include <GL/glut.h>
-
-#include"iniciar_ui.h"
 #include"display.h"
+#include"funcao_mouse.h"
+#include"interface.h"
+
+void desenharQuadrado(float x, float y, float comprimento){
+
+	glBegin(GL_POLYGON);
+		glVertex3f(x, y, 0.0);
+		glVertex3f(x, y + comprimento, 0.0);
+		glVertex3f(x + comprimento, y + comprimento, 0.0);
+		glVertex3f(x + comprimento, y, 0.0);
+	glEnd();
+}
+
+/*********************************
+*
+*
+*
+*********************************/
 
 void iniciarUI(int *argc, char** argv){
 
@@ -19,6 +34,8 @@ void iniciarUI(int *argc, char** argv){
 	// Tell GLUT that whenever the main window needs to be repainted that it
 	// should call the function display().
 	glutDisplayFunc(display);
+	
+	glutMouseFunc(funcaoMouse);
 
 	// Tell GLUT to start reading and processing events.  This function
 	// never returns; the program only exits when the user closes the main
