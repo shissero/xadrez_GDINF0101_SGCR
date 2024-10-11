@@ -12,12 +12,10 @@ void display(){
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
-	glTranslatef(-40.0, -40.0, -20.0);
  	
  	glPushMatrix();
  	
- 	desenharTabuleiro(PLANO_ESQ, PLANO_DIR, PLANO_INF, PLANO_SUP);
+ 	desenharTabuleiro();
  	
  	glPopMatrix();
  	
