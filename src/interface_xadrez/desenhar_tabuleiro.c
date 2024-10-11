@@ -5,26 +5,23 @@
 #include"desenhar_tabuleiro.h"
 #include"interface.h"
 #include"desenhar_casas.h"
+#include"volume_de_projecao.h"
 
-// Essa função recebe uma área da tela e desenha uma malha quadriculada sobre toda a área
-// A cor das casas escuras deve ser decidida antes dessa função ser chamada
-// Uma cor das casas claras será a cor do que estiver por trás do tabuleiro (ou a cor de limpeza do buffer
-void desenharTabuleiro(float lim_esquerdo, float lim_direito, float lim_inferior, float lim_superior){
+// Essa função desenha um tabuleiro de xadrez - peças e casas
+// A origem do sistema deve estar no centro do volume de projeção
+void desenharTabuleiro(){
+	
+	// A função que desenha as casas começa pelo canto inferior esquerdo do quadrado, então é necessário transladar o sistema
+	// Essa implementação é simples porque o volume de projeção é simétrico em relação à origem
+	glTranslatef(TELA_TABULEIRO.esquerdo, TELA_TABULEIRO.inferior, Z_CASAS_TABULEIRO);
 
-	if(lim_direito < lim_esquerdo){
+	float tam_casa = (TELA_TABULEIRO.direito - TELA_TABULEIRO.esquerdo)/8.0f;
 	
-		printf("Erro ao desenhar tabuleiro. O limite direito é menor que o esquerdo\n");
-		return;
-	}
-	else {
-		float tam_casa = (lim_direito - lim_esquerdo)/8;
-	
-		glPushMatrix();
+	glPushMatrix();
 			
-		desenharCasas(tam_casa);
+	desenharCasas(tam_casa);
  		
- 		glPopMatrix();
+ 	glPopMatrix();
  			
- 		desenharSprite(PEAO, tam_casa, tam_casa);
- 	}
+ 	desenharSprite(PEAO, tam_casa, tam_casa);
 }

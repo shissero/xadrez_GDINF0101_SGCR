@@ -1,6 +1,7 @@
 #include<GL/glut.h>
 
 #include"preparar_desenho.h"
+#include"volume_de_projecao.h"
 
 
 // Esta função prepara a tela para o desenho
@@ -12,5 +13,5 @@ void prepararDesenho(){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	
-	glOrtho(PLANO_ESQ, PLANO_DIR, PLANO_INF, PLANO_SUP, PLANO_PROX, PLANO_DIST);
+	glOrtho(TELA_TABULEIRO.esquerdo, TELA_TABULEIRO.direito, TELA_TABULEIRO.inferior, TELA_TABULEIRO.superior, TELA_TABULEIRO.proximal, TELA_TABULEIRO.distal);
 }
