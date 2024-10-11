@@ -5,6 +5,7 @@
 // Função para inserir uma peça ao final da lista encadeada
 void inserirPeca (struct ElementoPeca *ptrPeca, struct ElementoPeca *novoElemento) {
 
+  // TODO : Remova essa inicialização. Criaremos uma outra função para isso
   novoElemento->prox = NULL;   // Define que o novo elemento será o último da lista
   
   if (ptrPeca == NULL) {    // Verifica se a lista está vazia
