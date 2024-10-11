@@ -2,9 +2,8 @@
 #include <string.h>
 #include "peca.h"
 #include "inicializarpeca.h"
-#include "inicializarpeca.c"
 #include "colateralmoves.h"
-#include "colateralmoves.c"
+#include "bispo.h"
 
 void cria_bispo(Peca *bispo) {
 
@@ -16,6 +15,8 @@ void cria_bispo(Peca *bispo) {
 
     // Função para inicializar a peça
     inicializarPeca(&bispo, tipoPeca, cor, coord);
+    
+    int movimentos[8][2];
     // Gera movimentos colaterais do bispo
-    colateralmoves(bispo.posicao[1], bispo.posicao[0]);
+    colateralmoves(bispo->posicao[1], bispo->posicao[0], movimentos);
 }

@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-void cardealmoves (int, int)
+void cardealmoves (int, int, int movimentos[8][2]);
 
 #endif

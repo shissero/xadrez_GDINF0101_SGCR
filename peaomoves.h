@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-void peaomoves (int, int)
+void peaomoves (int, int, int movimentos[2][2]);
 
 #endif

@@ -1,21 +1,38 @@
 #include <stdio.h>
 #include "peca.h"
+#include "cardealmoves.h"
 
  //função para gerar movimentos cardeais
- void cardealmoves (int linha, int coluna) {
- 
- //Verificação dos limites do tabuleiro
- if (linha >= 1 && linha <= 8 && coluna <= 8 && coluna >= 1) {
+// Função para gerar movimentos cardeais
+void cardealmoves(int linha, int coluna, int movimentos[8][2]) {
+    int index = 0; // Índice para preencher o array de movimentos
+
+    // Verificação dos limites do tabuleiro
+    if (linha >= 1 && linha <= 8 && coluna >= 1 && coluna <= 8) {
     
-    //movimentos cardeais
-    
-    //norte
-    for (int i = 1; linha - i >= 1; i++)
-    //sul
-    for (int i = 1; linha + i <= 8; i++)
-    //leste
-    for (int i = 1; coluna + i <= 8; i++)
-    //oeste
-    for (int i = 1; coluna - i >= 1; i++)
-    
- }
+        // Norte
+        for (int i = 1; linha - i >= 1; i++) {
+            movimentos[index][0] = linha - i;
+            movimentos[index][1] = coluna;
+            index++;
+        }
+        // Sul
+        for (int i = 1; linha + i <= 8; i++) {
+            movimentos[index][0] = linha + i;
+            movimentos[index][1] = coluna;
+            index++;
+        }
+        // Leste
+        for (int i = 1; coluna + i <= 8; i++) {
+            movimentos[index][0] = linha;
+            movimentos[index][1] = coluna + i;
+            index++;
+        }
+        // Oeste
+        for (int i = 1; coluna - i >= 1; i++) {
+            movimentos[index][0] = linha;
+            movimentos[index][1] = coluna - i;
+            index++;
+        }
+    }
+}

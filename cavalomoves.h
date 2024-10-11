@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-void cavalomoves (int, int);
+void cavalomoves (int, int, int movimentos[8][2]);
 
 #endif

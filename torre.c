@@ -2,9 +2,8 @@
 #include <string.h>
 #include "peca.h"
 #include "inicializarpeca.h"
-#include "inicializarpeca.c"
 #include "cardealmoves.h"
-#include "cardealmoves.c"
+
 
 void cria_torre(Peca *torre) {
 
@@ -16,6 +15,8 @@ void cria_torre(Peca *torre) {
 
     // Chama a função para inicializar a peça
     inicializarPeca(&torre, tipoPeca, cor, coord);
+    
+    int movimentos[8][2];
     // Gera os movimentos cardeais da torre
-    cardealmoves(torre.posicao[1], torre.posicao[0]);
+    cardealmoves(torre->posicao[1], torre->posicao[0], movimentos);
 }

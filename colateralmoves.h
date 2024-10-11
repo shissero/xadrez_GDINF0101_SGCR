@@ -3,8 +3,6 @@
 
 #include"peca.h"
 
-void colateralmoves (int, int)
+void colateralmoves (int, int, int movimentos[8][2]);
 
 #endif
-
-

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "inicializarpeca.h"
+#include "peca.h"
 
 void inicializarPeca (PtrPeca *ptrpeca, char t_peca[], int color, int coord[]) {
 

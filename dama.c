@@ -2,11 +2,8 @@
 #include <string.h>
 #include "peca.h"
 #include "inicializarpeca.h"
-#include "inicializarpeca.c"
 #include "cardealmoves.h"
-#include "cardealmoves.c"
 #include "colateralmoves.h"
-#include "colateralmoves.c"
 
 void cria_dama(Peca *dama) {
 
@@ -18,7 +15,9 @@ void cria_dama(Peca *dama) {
 
     // Chama a função para inicializar a peça
     inicializarPeca(&dama, tipoPeca, cor, coord);
-    // Gera os movimentos cardeais da dama
-    cardealmoves(dama.posicao[1], dama.posicao[0]);
-    colateralmoves(dama.posicao[1], dama.posicao[0]);
+    
+    int movimentos[8][2];
+    // Gera os movimentos da dama
+    cardealmoves(dama->posicao[1], dama->posicao[0], movimentos);
+    colateralmoves(dama->posicao[1], dama->posicao[0], movimentos);
 }
