@@ -6,7 +6,7 @@
 struct ElementoPeca {
 
   struct Peca *conteudo;
-  struct ElementoPeca *ant;
+  //struct ElementoPeca *ant;
   struct ElementoPeca *prox;
 
 };
