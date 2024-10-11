@@ -3,6 +3,6 @@
 
 #include "elemento_peca.h"
 
-inserirElementoPeca (struct ElementoPeca **ptrPeca, struct Peca *novaPeca);
+void inserirElementoPeca (struct ElementoPeca*, struct Peca*);
 
 #endif
