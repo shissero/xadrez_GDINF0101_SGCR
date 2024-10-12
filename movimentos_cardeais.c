@@ -7,7 +7,7 @@ void movimentosCardeais(int coluna, int linha) {
   
   //movimentos cardeais
   //norte
-  for (int i = 1; linha + i <= 8; i++) {
+  for (int i = 1; linha + i <= 8; i++) { // O for altera o valor de i, mas não altera o valor da linha ou da coluna, que são os valores mostrados pelo printf
     printf("(%d, %d)\n", coluna, linha);
   }
   
