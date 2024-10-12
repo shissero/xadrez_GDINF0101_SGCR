@@ -3,24 +3,21 @@
 #include "inserir_elemento_peca.h"
 
 // Função para inserir uma peça ao final da lista encadeada
-void inserirPeca (struct ElementoPeca *ptrPeca, struct ElementoPeca *novoElemento) {
-
-  // TODO : Remova essa inicialização. Criaremos uma outra função para isso
-  novoElemento->prox = NULL;   // Define que o novo elemento será o último da lista
+void inserirPeca (struct ElementoPeca **lista, struct ElementoPeca *novoElemento) {
   
-  if (ptrPeca == NULL) {    // Verifica se a lista está vazia
-  
-    ptrPeca = novoElemento;
+	if ( *lista == NULL) {
     
-  } else {
-  
-    struct ElementoPeca *atual = ptrPeca;   // Começa no primeiro elemento da lista
-    
-    while (atual->prox != NULL) {     // Percorre a lista até o último nó
-    
-      atual = atual->prox;   // Avança para o próximo nó da lista
-    }
-    
-    atual->prox = novoElemento;    // Insere o novo elemento após o último nó
-  }
+		*lista = novoElemento;
+	}
+	else {
+	
+		struct ElementoMovimento *aux = *lista;
+		
+		while (aux->prox != NULL) {
+		
+			aux = aux->prox;
+		}
+		
+		aux->prox = novoElemento;
+	}
 }
