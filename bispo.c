@@ -5,7 +5,7 @@
 #include "colateralmoves.h"
 #include "bispo.h"
 
-void cria_bispo(Peca *bispo) {
+void criabispo(Peca *bispo) {
 
     // Inicializa a peça
     char tipoPeca[] = "Bispo"; // Tipo da peça
