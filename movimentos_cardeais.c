@@ -5,13 +5,26 @@
 // Função para gerar movimentos cardeais
 void movimentosCardeais(int coluna, int linha) {
   
-//movimentos cardeais
-  
+  //movimentos cardeais
   //norte
-  for (int i = 1; linha + i <= 8; i++)
+  for (int i = 1; linha + i <= 8; i++) { // O for altera o valor de i, mas não altera o valor da linha ou da coluna, que são os valores mostrados pelo printf
+    printf("(%d, %d)\n", coluna, linha);
+  }
+  
   //sul
-  for (int i = 1; linha - i >= 1; i++)
+  for (int i = 1; linha - i >= 1; i++) {
+    printf("(%d, %d)\n", coluna, linha);
+  }
+  
   //leste
-  for (int i = 1; coluna + i <= 8; i++)
+  for (int i = 1; coluna + i <= 8; i++) {
+    printf("(%d, %d)\n", coluna, linha);
+  }
+  
   //oeste
-  for (int i = 1; coluna - i >= 1; i++)
+  for (int i = 1; coluna - i >= 1; i++) {
+    printf("(%d, %d)\n", coluna, linha);
+  }  
+  
+    
+}
