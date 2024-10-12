@@ -3,7 +3,7 @@
 
 typedef struct {
 
-  char tipoPeca [7];
+  int tipoPeca;
   int cor;
   int posicao [2];
   int primMov;
