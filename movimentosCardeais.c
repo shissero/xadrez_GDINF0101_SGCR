@@ -11,7 +11,7 @@ void movimentosCardeais(int coluna, int linha) {
     //norte
     for (int i = 1; linha + i; i++)
     //sul
-    for (int i = 1; linha + i; i++)
+    for (int i = 1; linha - i; i++)
     //leste
     for (int i = 1; coluna + i; i++)
     //oeste
