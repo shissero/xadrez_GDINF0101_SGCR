@@ -1,19 +1,15 @@
 #include <stdio.h>
-#include <string.h>
 #include "inicializarpeca.h"
 #include "peca.h"
 
-// TODO: É necessário mudar os tipos dos parâmetros para se adequar à nova forma da struct Peca
-// TODO: As coordenadas devem ser passsadas como dois parâmetros diferentes
-void inicializarPeca (PtrPeca *ptrpeca, char t_peca[], int color, int coord[]) {
+void inicializarPeca (Peca *ptrpeca, int tipoPeca, int cor, int coluna, int linha, int primeiroMovimento) {
 
-    // TODO: É necessário validar o tipo de peça recebido, para garantir que um tipo inválido não será passado
-    strcpy((*ptrpeca)->tipoPeca, t_peca); 
-    (*ptrpeca)->cor = color;                 
-    (*ptrpeca)->posicao[0] = coord[0];
-    (*ptrpeca)->posicao[1] = coord[1];
+    if (tipoPeca >= Pecas.PEAO && tipoPeca <= Pecas.REI && (cor == -1 || cor == 1)) {
+    ptrpeca->tipoPeca = tipoPeca;
+    ptrpeca->cor = cor;
+    ptrpeca->posicao[0] = coluna;
+    ptrpeca->posicao[1] = linha;
+    ptrpeca->primMov = primeiroMovimento;
+    }
     
 }
-
- 
-

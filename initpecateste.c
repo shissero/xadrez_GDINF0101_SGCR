@@ -7,11 +7,12 @@
 int main() {
     
     Peca peca;
-    PtrPeca ptrpeca = &peca;       
+    Peca ptrpeca = &peca;       
     
-    char tipo[] = "Cavalo";
+    int tipo = 1;
     int cor = 0; 
-    int posicao[] = {1, 0};
+    int coluna = 1;
+    int linha = 0;
     
     inicializarPeca(&ptrpeca, tipo, cor, posicao);
     

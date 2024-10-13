@@ -1,5 +1,6 @@
 #ifndef PECA_H_
 #define PECA_H_
+#include "inicializar_peca.h"
 
 enum Pecas {
     PEAO,
