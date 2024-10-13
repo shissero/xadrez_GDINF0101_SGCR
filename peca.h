@@ -10,6 +10,11 @@ enum Pecas {
     REI
 };
 
+enum Cores {
+    PRETA = -1,
+    BRANCA = 1
+};
+
 struct Peca {
 
   int tipoPeca;
