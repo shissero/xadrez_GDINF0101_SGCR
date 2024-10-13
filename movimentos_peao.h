@@ -1,5 +1,5 @@
-#ifndef peaomoves_h_
-#define peaomoves_h_
+#ifndef MOVIMENTOS_PEAO_H_
+#define MOVIMENTOS_PEAO_H_
 
 #include"peca.h"
 
