@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 #include"mostrar_lista_movimentos.h"
-#include"mostrar_movimento_ptr.h"
+#include"mostrar_movimento.h"
 
 void mostrarListaMovimentos(struct ElementoMovimento *mostranda){
 
@@ -11,7 +11,7 @@ void mostrarListaMovimentos(struct ElementoMovimento *mostranda){
 	
 	for(struct ElementoMovimento *aux = mostranda; aux != NULL ; aux = aux->prox, contador++){
 	
-		mostrarMovimentoPtr(aux->movimento);
+		mostrarMovimento(aux->movimento);
 	}
 	
 	printf("Mostrados %d movimentos\n\n", contador);
