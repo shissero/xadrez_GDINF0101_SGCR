@@ -1,6 +1,5 @@
 #ifndef PECA_H_
 #define PECA_H_
-#include "inicializar_peca.h"
 
 enum Pecas {
     PEAO,
@@ -9,6 +8,11 @@ enum Pecas {
     BISPO,
     DAMA,
     REI
+};
+
+enum Cores {
+    PRETA = -1,
+    BRANCA = 1
 };
 
 struct Peca {

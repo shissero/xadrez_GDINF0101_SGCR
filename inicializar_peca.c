@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "inicializarpeca.h"
+#include "inicializar_peca.h"
 #include "peca.h"
 
 void inicializarPeca (Peca *ptrpeca, int tipoPeca, int cor, int coluna, int linha, int primeiroMovimento) {

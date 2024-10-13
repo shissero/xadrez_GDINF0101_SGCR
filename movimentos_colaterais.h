@@ -1,4 +1,4 @@
-#ifndef MOVIMENTOS_COLATEAIS_H_
+#ifndef MOVIMENTOS_COLATERAIS_H_
 #define MOVIMENTOS_COLATERAIS_H_
 
 #include"peca.h"

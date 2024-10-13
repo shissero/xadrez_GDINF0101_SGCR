@@ -1,9 +1,12 @@
 #include <stdio.h>
-#include "peca.h"
-#include "cavalomoves.h"
 
-void cavalomoves(int linha, int coluna, int movimentos[8][2]) {
+#include "peca.h"
+#include "movimentos_cavalo.h"
+
+void movimentosCavalo(int coluna, int linha) {
     
+    // TODO: É necessário mudar esta implementação para que fique congruente com as outras funções
+    // TODO: É necessário testar se os movimentos gerados não caem fora do tabuleiro
     // Movimentos possíveis do cavalo em "L"
     movimentos[0][0] = linha - 2; movimentos[0][1] = coluna - 1; // Cima-esquerda
     movimentos[1][0] = linha - 2; movimentos[1][1] = coluna + 1; // Cima-direita
