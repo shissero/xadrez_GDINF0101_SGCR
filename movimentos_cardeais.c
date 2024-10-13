@@ -15,3 +15,4 @@ void movimentosCardeais(int coluna, int linha) {
   for (int i = 1; coluna + i <= 8; i++)
   //oeste
   for (int i = 1; coluna - i >= 1; i++)
+}
