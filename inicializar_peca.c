@@ -2,9 +2,9 @@
 #include "inicializar_peca.h"
 #include "peca.h"
 
-void inicializarPeca (Peca *ptrpeca, int tipoPeca, int cor, int coluna, int linha, int primeiroMovimento) {
+void inicializarPeca (struct Peca *ptrpeca, int tipoPeca, int cor, int coluna, int linha, int primeiroMovimento) {
 
-    if (tipoPeca >= Pecas.PEAO && tipoPeca <= Pecas.REI && (cor == -1 || cor == 1)) {
+    if (tipoPeca >= PEAO && tipoPeca <= REI && (cor == PRETA || cor == BRANCA)) {
     ptrpeca->tipoPeca = tipoPeca;
     ptrpeca->cor = cor;
     ptrpeca->posicao[0] = coluna;
