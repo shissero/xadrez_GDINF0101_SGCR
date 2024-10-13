@@ -1,8 +1,8 @@
 #include<stdio.h>
 
-#include"mostrar_movimento_ptr.h"
+#include"mostrar_movimento.h"
 
-void mostrarMovimentoPtr(struct Movimento *mostranda){
+void mostrarMovimento(struct Movimento *mostranda){
 
 	printf("\n\n**Mostrando um movimento**\n\n");
 	printf("Destino do movimento: (%d, %d)\n", mostranda->coluna_destino, mostranda->linha_destino);
