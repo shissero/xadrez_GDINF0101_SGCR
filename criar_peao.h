@@ -1,5 +1,5 @@
-#ifndef CRIA_PEAO_H_
-#define CRIA_PEAO_H_
+#ifndef CRIAR_PEAO_H_
+#define CRIAR_PEAO_H_
 
 #include "peca.h"
 
