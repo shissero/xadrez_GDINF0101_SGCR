@@ -3,6 +3,6 @@
 
 #include"../game_manager/movimentos/elemento_movimento.h"
 
-void mostrarMovimentoPtr(struct Movimento *);
+void mostrarMovimento(struct Movimento *);
 
 #endif

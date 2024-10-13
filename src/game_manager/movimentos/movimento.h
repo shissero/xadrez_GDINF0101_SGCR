@@ -1,8 +1,8 @@
 #ifndef MOVIMENTO_H_
 #define MOVIMENTO_H_
 
-#define DESLOCAMENTO 0
-#define CAPTURA 1
+enum Naturezas { DESLOCAMENTO,
+			CAPTURA };
 
 struct Movimento {
 
