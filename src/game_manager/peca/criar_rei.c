@@ -1,11 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "reimoves.h"
+#include "inicializar_peca.h"
+#include "criar_rei.h"
 
-// TODO: Adequar essa função à nova implementação de inicializarPeca
-void criarRei(Peca *rei) {
+struct Peca *criarRei(int cor, int coluna, int linha, int primMov) {
 
-    inicializarPeca(&rei, tipoPeca, cor, coord);
+    struct Peca *rei = (struct Peca*)malloc(sizeof(struct Peca));
+    
+    inicializarPeca(rei, REI, cor, coluna, linha, primMov);
+    
+    return rei;
 }
