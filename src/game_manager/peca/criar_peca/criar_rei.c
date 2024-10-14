@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include "peca.h"
-#include "inicializar_peca.h"
+#include "../peca.h"
+#include "../inicializar_peca.h"
 #include "criar_rei.h"
 
 struct Peca *criarRei(int cor, int coluna, int linha, int primMov) {

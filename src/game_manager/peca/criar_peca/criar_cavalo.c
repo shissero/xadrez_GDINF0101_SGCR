@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include "peca.h"
-#include "inicializar_peca.h"
+#include "../peca.h"
+#include "../inicializar_peca.h"
 #include "criar_cavalo.h"
 
 struct Peca *criarCavalo(int cor, int coluna, int linha) {

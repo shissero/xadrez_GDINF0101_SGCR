@@ -1,13 +1,13 @@
 #include <stdlib.h>
 
 #include"elemento_peca.h"
-#include"../criar_peca/criar_peao.h"
+#include"../criar_peca/criar_bispo.h"
 
-struct ElementoPeca *criarElementoPeao(int cor, int coluna, int linha, int primMov){
+struct ElementoPeca *criarElementoBispo(int cor, int coluna, int linha){
 
 	struct ElementoPeca *novo = (struct ElementoPeca*)malloc(sizeof(struct ElementoPeca));
 	
-	novo->peca = criarPeao(cor, coluna, linha, primMov);
+	novo->peca = criarBispo(cor, coluna, linha);
 	novo->ant = NULL;
 	novo->prox = NULL;
 	

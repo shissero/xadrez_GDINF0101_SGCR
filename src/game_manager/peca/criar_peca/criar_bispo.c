@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include "peca.h"
-#include "inicializar_peca.h"
+#include "../peca.h"
+#include "../inicializar_peca.h"
 #include "criar_bispo.h"
 
 struct Peca *criarBispo(int cor, int coluna, int linha) {

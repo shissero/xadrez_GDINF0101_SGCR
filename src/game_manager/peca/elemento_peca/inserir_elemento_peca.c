@@ -3,7 +3,7 @@
 #include "inserir_elemento_peca.h"
 
 // Função para inserir uma peça ao final da lista encadeada
-void inserirPeca (struct ElementoPeca **lista, struct ElementoPeca *novoElemento) {
+void inserirElementoPeca(struct ElementoPeca **lista, struct ElementoPeca *novoElemento) {
   
 	if ( *lista == NULL) {
     
@@ -11,7 +11,7 @@ void inserirPeca (struct ElementoPeca **lista, struct ElementoPeca *novoElemento
 	}
 	else {
 	
-		struct ElementoMovimento *aux = *lista;
+		struct ElementoPeca *aux = *lista;
 		
 		while (aux->prox != NULL) {
 		
