@@ -3,7 +3,7 @@
 # Para adicionarem os de vocês, basta colocarem os caminhos relativos à pasta do makefile 
 # Vocês podem adicionar quantos arquivos quiserem, desde que usem espaços para separar cada nome e não removam nenhum dos que já estão na lista
 # $(wildcard alguma_pasta/*.c) vai adicionar todos os arquivos .c da pasta "alguma_pasta"
-SRCS := $(wildcard src/interface_xadrez/*.c) $(wildcard src/debug/*.c) $(wildcard src/game_manager/movimentos/*.c) src/game_manager/peca/inicializar_peca.c src/game_manager/peca/criar_torre.c testes.c
+SRCS := $(wildcard src/interface_xadrez/*.c) $(wildcard src/debug/*.c) $(wildcard src/game_manager/movimentos/*.c) src/game_manager/peca/inicializar_peca.c $(wildcard src/game_manager/peca/criar_*.c)  testes.c # src/game_manager/tabuleiro/criar_time.c
 
 # Aqui devem ser adicionados os cabeçalhos, as regras são as mesmas 
 HEADERS := $(wildcard src/interface_xadrez/*.h)
