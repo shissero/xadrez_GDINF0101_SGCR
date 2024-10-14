@@ -1,12 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "cavalomoves.h"
-#include "cavalo.h"
+#include "inicializar_peca.h"
+#include "criar_cavalo.h"
 
-// TODO: Essa função precisa ser readequada à nova implementação de inicializarPeca
-void criarCavalo(Peca *cavalo) {
+struct Peca *criarCavalo(int cor, int coluna, int linha) {
 
-    inicializarPeca(&cavalo, tipoPeca, cor, coord);
+    struct Peca *cavalo = (struct Peca*)malloc(sizeof(struct Peca));
+    
+    inicializarPeca(cavalo, CAVALO, cor, coluna, linha, 0);
+    
+    return cavalo;
 }

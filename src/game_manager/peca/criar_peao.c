@@ -1,10 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "peaomoves.h"
+#include "inicializar_peca.h"
+#include "criar_peao.h"
 
-void criarPeao(Peca *peao) {
+struct Peca *criarPeao(int cor, int coluna, int linha, int primMov) {
 
-    inicializarPeca(&peao, tipoPeca, cor, coord);
+    struct Peca *peao = (struct Peca*)malloc(sizeof(struct Peca));
+    
+    inicializarPeca(peao, PEAO, cor, coluna, linha, primMov);
+    
+    return peao;
 }

@@ -1,13 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "cardealmoves.h"
-#include "colateralmoves.h"
+#include "inicializar_peca.h"
+#include "criar_dama.h"
 
-// TODO: Adequar essa função à nova implementação de inicializarPeca
-void criarDama(Peca *dama) {
+struct Peca *criarDama(int cor, int coluna, int linha) {
 
-    // Inicializa a peça
-    inicializarPeca(&dama, tipoPeca, cor, coord);
+    struct Peca *dama = (struct Peca*)malloc(sizeof(struct Peca));
+    
+    inicializarPeca(dama, DAMA, cor, coluna, linha, 0);
+    
+    return dama;
 }

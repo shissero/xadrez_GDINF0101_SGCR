@@ -4,6 +4,6 @@
 #include "peca.h"
 
 // Função para criar um rei
-void criarRei(Peca*);
+struct Peca *criarRei(int, int, int, int);
 
 #endif

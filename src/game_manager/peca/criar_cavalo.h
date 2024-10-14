@@ -3,7 +3,7 @@
 
 #include "peca.h"
 
-// Função para criar um cavalo
-void criarCavalo(Peca*);
+// Função para criar um bispo
+struct Peca *criarCavalo(int, int, int);
 
 #endif
