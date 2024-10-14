@@ -4,6 +4,8 @@
 struct Tabuleiro {
 
 	struct ElementoPeca *Pretas;
+	struct ElementoPeca *Brancas;
+	int vez; // Esse campo dita qual dos times está jogando
 };
 
 #endif
