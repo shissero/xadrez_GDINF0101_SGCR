@@ -4,13 +4,14 @@
 #include"desenhar_sprite.h"
 #include"interface.h"
 #include"obter_tex_de_arquivo.h"
+#include"../game_manager/peca/peca.h"
 
 // Função implementada para desenhar sprites 16x16 com pixels RGBA extraídas de arquivos contendo somente com os bytes 
 // Recebe uma constante que determina a sprite a ser desenhada, e mais dois float para altura e largura máximas que a sprite pode ter
 void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 
 	
-	// Calculamos o tamanho dos pixels em função de uma das dimensões máximas e da dimençao correstpondente na sprite;
+	// Calculamos o tamanho dos pixels em função de uma das dimensões máximas e da dimençao correspondente na sprite;
 	float tam_pixel = max_largura/16;
 	
 	GLubyte spr_buffer[16][16][4];
@@ -21,7 +22,8 @@ void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 	switch(tipo_sprite){
 	
 		case PEAO:
-			obterTexDeArquivo("src/interface_xadrez/sprites/peao_16_tex", ptr_buffer, SPRITE_BYTES);
+			printf("Achei um peao\n");
+			obterTexDeArquivo("src/interface/sprites/peao_16_tex", ptr_buffer, SPRITE_BYTES);
 			break;
 	}
 	
@@ -44,7 +46,7 @@ void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 			
 			// Testa-se o pixel não é transparente. Se ele for, não é necessário desenhá-lo
 			if(spr_buffer[linha][coluna][3] != 0x00){
-			
+				
 				glColor4ub(spr_buffer[linha][coluna][0], spr_buffer[linha][coluna][1], spr_buffer[linha][coluna][2], spr_buffer[linha][coluna][3]);
 				
 				desenharQuadrado(0.0, 0.0, tam_pixel);

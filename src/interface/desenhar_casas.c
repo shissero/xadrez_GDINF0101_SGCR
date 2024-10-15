@@ -17,11 +17,11 @@ void desenharCasas(float tam_casa){
 	 		// Todas as casas do tabuleiro cuja soma das coordenadas é par têm a mesma cor. O mesmo vale para as ímpares
 	 		if( (i + j) % 2 ){
 	 			
-	 			glColor3fv(cor_escura);
+	 			glColor3fv(cor_clara);
 	 		}
 	 		else{
 	 			
-	 			glColor3fv(cor_clara);
+	 			glColor3fv(cor_escura);
 	 		}
 	 			
 	 		desenharQuadrado(0.0, 0.0, tam_casa);
