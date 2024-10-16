@@ -1,14 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "colateralmoves.h"
-#include "bispo.h"
+#include "inicializar_peca.h"
+#include "criar_bispo.h"
 
-// TODO: Adequar essa função à nova implementação de inicializarPeca
-void criarBispo(Peca *bispo, int cor, int coluna, int linha) {
+struct Peca *criarBispo(int cor, int coluna, int linha) {
 
+    struct Peca *bispo = (struct Peca*)malloc(sizeof(struct Peca));
     
-    inicializarPeca(bispo, tipoPeca, cor, coord);
+    inicializarPeca(bispo, BISPO, cor, coluna, linha, 0);
+    
+    return bispo;
 }

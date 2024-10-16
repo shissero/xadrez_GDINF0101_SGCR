@@ -4,6 +4,6 @@
 #include "peca.h"
 
 // Função para criar um peão
-void criarPeao(Peca*);
+struct Peca *criarPeao(int, int, int, int);
 
 #endif

@@ -4,6 +4,6 @@
 #include "peca.h"
 
 // Função para criar uma dama
-void criarDama(Peca*);
+struct Peca *criarDama(int, int, int);
 
 #endif

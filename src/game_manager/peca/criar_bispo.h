@@ -4,6 +4,6 @@
 #include "peca.h"
 
 // Função para criar um bispo
-void criarBispo(Peca*);
+struct Peca *criarBispo(int, int, int);
 
 #endif

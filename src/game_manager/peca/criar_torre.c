@@ -1,11 +1,14 @@
-#include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 #include "peca.h"
-#include "inicializarpeca.h"
-#include "cardealmoves.h"
+#include "inicializar_peca.h"
+#include "criar_torre.h"
 
-// TODO: Adequar esta função à nova implementação de de inicializarPeca
-void criaTorre(Peca *torre) {
+struct Peca *criarTorre(int cor, int coluna, int linha, int primMov) {
 
-   inicializarPeca(&torre, tipoPeca, cor, coord);
+    struct Peca *torre = (struct Peca*)malloc(sizeof(struct Peca));
+    
+    inicializarPeca(torre, TORRE, cor, coluna, linha, primMov);
+    
+    return torre;
 }

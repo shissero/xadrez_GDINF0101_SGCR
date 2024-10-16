@@ -4,6 +4,6 @@
 #include "peca.h"
 
 // Função para criar um torre
-void criaTorre(Peca *);
+struct Peca *criarTorre(int, int, int, int);
 
 #endif
