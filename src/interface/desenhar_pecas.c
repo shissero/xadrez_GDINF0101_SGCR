@@ -12,15 +12,17 @@ void desenharPecas(float largura, float altura){
 
 	struct ElementoPeca *time = TABULEIRO->Pretas;
 	
-	for(int i = 0; i < 8; i++){
+	for(int i = 0; i < 9; i++){
 	
-		mostrarPeca(time->peca);
-	
+		struct Peca *aux = time->peca;
+		
 		glPushMatrix();
 		
-		glTranslatef( (time->peca->posicao[0]-1)*largura, (time->peca->posicao[1]-1)*altura, 0.0f);
+		glTranslatef( (aux->posicao[0]-1)*largura, (aux->posicao[1]-1)*altura, 0.0f );
 		
-		desenharSprite(time->peca->tipoPeca, largura, altura);
+		mostrarPeca(aux);
+		
+		desenharSprite(aux->tipoPeca, largura, altura);
 		
 		glPopMatrix();
 		

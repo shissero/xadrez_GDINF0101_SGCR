@@ -5,27 +5,22 @@
 #include"interface.h"
 #include"obter_tex_de_arquivo.h"
 #include"../game_manager/peca/peca.h"
+#include"sprites.h"
+#include"desenhar_pixel.h"
 
 // Função implementada para desenhar sprites 16x16 com pixels RGBA extraídas de arquivos contendo somente com os bytes 
 // Recebe uma constante que determina a sprite a ser desenhada, e mais dois float para altura e largura máximas que a sprite pode ter
+// A sprite é quadrada e a área de desenho também, mas usei essa implementação para ser mais fácil de tornar a função mais genérica em outro momento
 void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 
 	
-	// Calculamos o tamanho dos pixels em função de uma das dimensões máximas e da dimençao correspondente na sprite;
+	// Calculamos o tamanho dos pixels em função de uma das dimensões máximas da sprite
 	float tam_pixel = max_largura/16;
 	
-	GLubyte spr_buffer[16][16][4];
-	
-	GLubyte *ptr_buffer = &spr_buffer;
+	GLubyte *spr_buffer;
 
 	// Obtem-se os bytes da sprite a se desenhada
-	switch(tipo_sprite){
-	
-		case PEAO:
-			printf("Achei um peao\n");
-			obterTexDeArquivo("src/interface/sprites/peao_16_tex", ptr_buffer, SPRITE_BYTES);
-			break;
-	}
+	spr_buffer = SPRITES[tipo_sprite];
 	
 	
 	// Move-se a origem do sistema para a posição do topo da sprite
@@ -41,15 +36,14 @@ void desenharSprite(int tipo_sprite, float max_altura, float max_largura){
 		
 		
 		// Aqui desenhamos as linhas de pixels
-		for(int coluna = 0; coluna < 16; coluna++){
+		// Como cada pixel tem 4 bytes, a cada volta, deve-se avançar quatro bytes para encontrar o próximo pixels
+		for(int coluna = 0; coluna < 16; coluna++, spr_buffer += 4){
 			
 			
 			// Testa-se o pixel não é transparente. Se ele for, não é necessário desenhá-lo
-			if(spr_buffer[linha][coluna][3] != 0x00){
+			if( *(spr_buffer + 3) != 0x00){
 				
-				glColor4ub(spr_buffer[linha][coluna][0], spr_buffer[linha][coluna][1], spr_buffer[linha][coluna][2], spr_buffer[linha][coluna][3]);
-				
-				desenharQuadrado(0.0, 0.0, tam_pixel);
+				desenharPixel(tam_pixel, *spr_buffer, *(spr_buffer + 1), *(spr_buffer + 2), *(spr_buffer + 3));
 			}
 	
 			

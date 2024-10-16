@@ -11,7 +11,7 @@ PATH_SRC := src
 SRCS_SRC := $(wildcard $(PATH_SRC)/*.c)
 
 		#############################################
-		# Fontes na pasta interface_xadrez
+		# Fontes na pasta interface
 PATH_INTERFACE := src/interface
 SRCS_INTERFACE := $(wildcard $(PATH_INTERFACE)/*.c)
 
@@ -68,7 +68,7 @@ HDRS_SRC := $(wildcard src/$(PATH_SRC)/*.h)
 
 
 		#############################################
-		# Cabeçalhos na pasta interface_xadrez
+		# Cabeçalhos na pasta interface
 HDRS_INTERFACE := $(wildcard $(PATH_INTERFACE)/*.h)
 
 
@@ -114,7 +114,7 @@ OBJS_SRC := $(patsubst $(PATH_SRC)/%.c,build/$(PATH_SRC)/%.o,$(SRCS_SRC))
 
 
 		#############################################
-		# Objetos da pasta interface_xadrez
+		# Objetos da pasta interface
 OBJS_INTERFACE := $(patsubst $(PATH_INTERFACE)/%.c,build/$(PATH_INTERFACE)/%.o,$(SRCS_INTERFACE))
 
 
@@ -157,19 +157,18 @@ OBJS_TABULEIRO := $(patsubst $(PATH_TABULEIRO)/%.c,build/$(PATH_TABULEIRO)/%.o,$
 	#######################
 	# Todos os objetos juntos
 OBJS_TODOS := $(OBJS_SRC) $(OBJS_INTERFACE) $(OBJS_DEBUG) $(OBJS_MOVIMENTOS) $(OBJS_PECAS) $(OBJS_CRIAR_PECA) $(OBJS_ELEMENTO_PECA) $(OBJS_TABULEIRO) $(OBJS_MAIN) #
-
-# Aqui o programa é finalmente compilado
-main: $(OBJS_TODOS)
-	gcc -g -Wall $^ -o $@ -lglut -lGLU -lGL
 	
-build/$(SRC)/%.o: SRC/%.c
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
-	
-build/%.o: %.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
 
 # Aqui são gerados os arquivos objeto da interface
 build/$(PATH_INTERFACE)/%.o: $(PATH_INTERFACE)/%.c $(HDRS_TODOS)
+	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+
+
+build/$(SRC)/%.o: SRC/%.c
+	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+
+
+build/%.o: %.c $(HDRS_TODOS)
 	gcc -g -Wall -c -o $@ $< $(CFLAGS)
 
 
@@ -201,3 +200,7 @@ build/$(PATH_ELEMENTO_PECA)/%.o: $(PATH_ELEMENTO_PECA)/%.c $(HDRS_TODOS)
 # Aqui são gerados os arquivos objeto da 
 build/$(PATH_TABULEIRO)/%.o: $(PATH_TABULEIRO)/%.c $(HDRS_TODOS)
 	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+
+# Aqui o programa é finalmente compilado
+main: $(OBJS_TODOS)
+	gcc -g -Wall $^ -o $@ -lglut -lGLU -lGL
