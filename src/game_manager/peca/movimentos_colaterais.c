@@ -20,7 +20,7 @@ struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
             item = criarElementoMovimento(coluna + i, linha + i, DESLOCAMENTO);
             inserirElementoMovimento (&lista, item);
         }
-        // Noroeste
+        // Noroeste TODO: Esses fors estão muito grudados um no outro, é bom dar espaço pro código ficar mais legível
         for (int i = 1; linha + i <= 8 && coluna - i >= 1; i++){
         
             item = criarElementoMovimento(coluna - i, linha + i, DESLOCAMENTO);
