@@ -22,7 +22,7 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
     item = criarElementoMovimento(coluna, linha + i, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
   };
-  //sul
+  //sul TODO: Esses fors estão muito grudados um no outro, é bom dar espaço pro código ficar mais legível
   for (int i = 1; linha - i >= 1; i++) {
   
     item = criarElementoMovimento(coluna, linha - i, DESLOCAMENTO);
