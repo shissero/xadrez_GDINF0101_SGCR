@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-void movimentosCardeais (int, int);
+struct ElementoMovimento *movimentosCardeais (int, int);
 
 #endif

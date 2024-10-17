@@ -20,5 +20,6 @@ void inserirElementoMovimento(struct ElementoMovimento **lista, struct ElementoM
 		}
 		
 		aux->prox = novoElemento;
+		novoElemento->ant = aux;
 	}
 }
