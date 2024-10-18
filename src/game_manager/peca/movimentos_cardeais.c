@@ -22,18 +22,21 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
     item = criarElementoMovimento(coluna, linha + i, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
   };
-  //sul TODO: Esses fors estão muito grudados um no outro, é bom dar espaço pro código ficar mais legível
+  
+  //sul 
   for (int i = 1; linha - i >= 1; i++) {
   
     item = criarElementoMovimento(coluna, linha - i, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
   };
+  
   //leste
   for (int i = 1; coluna + i <= 8; i++) {
   
     item = criarElementoMovimento(coluna + i, linha, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
   };
+  
   //oeste
   for (int i = 1; coluna - i >= 1; i++) {
   

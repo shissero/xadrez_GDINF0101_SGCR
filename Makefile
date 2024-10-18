@@ -37,7 +37,7 @@ SRCS_MOVIMENTOS := $(wildcard $(PATH_MOVIMENTOS)/*.c)
 			#############################################
 			# Fontes na pasta peca
 PATH_PECAS := src/game_manager/peca
-SRCS_PECAS := $(PATH_PECAS)/inicializar_peca.c $(PATH_PECAS)/movimentos_cardeais.c $(PATH_PECAS)/movimentos_torre.c $(PATH_PECAS)/movimentos_colaterais.c $(PATH_PECAS)/movimentos_bispo.c #$(wildcard $(PATH_PECAS)/*.c)
+SRCS_PECAS := $(PATH_PECAS)/inicializar_peca.c $(PATH_PECAS)/movimentos_cardeais.c $(PATH_PECAS)/movimentos_torre.c $(PATH_PECAS)/movimentos_colaterais.c $(PATH_PECAS)/movimentos_bispo.c $(PATH_PECAS)/movimentos_dama.c #$(wildcard $(PATH_PECAS)/*.c)
 
 
 				#############################################
