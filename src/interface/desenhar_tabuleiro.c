@@ -3,6 +3,7 @@
 
 #include"desenhar_pecas.h"
 #include"desenhar_tabuleiro.h"
+#include"desenhar_movimentos_possiveis.h"
 #include"desenhar_sprite.h"
 #include"interface.h"
 #include"desenhar_casas.h"
@@ -25,7 +26,15 @@ void desenharTabuleiro(){
  		
  	glPopMatrix();
  	
- 	//desenharSprite(PEAO, tam_casa, tam_casa);
+ 	glPushMatrix();
+			
+	desenharMovimentosPossiveis(tam_casa);
+ 		
+ 	glPopMatrix();
  			
- 	desenharPecas(tam_casa, tam_casa);
+ 	glPushMatrix();
+			
+	desenharPecas(tam_casa);
+ 		
+ 	glPopMatrix();
 }

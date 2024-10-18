@@ -58,6 +58,12 @@ PATH_TABULEIRO := src/game_manager/tabuleiro
 SRCS_TABULEIRO := $(wildcard $(PATH_TABULEIRO)/*.c)
 
 
+		#############################################
+		# Fontes na pasta utilitarios
+PATH_UTILITARIOS := src/utilitarios
+SRCS_UTILITARIOS := $(wildcard $(PATH_UTILITARIOS)/*.c)
+
+
 
 # Aqui devem ser adicionados os cabeçalhos, as regras são as mesmas 
 
@@ -101,6 +107,14 @@ HDRS_CRIAR_PECA := $(wildcard $(PATH_CRIAR_PECA)/*.h)
 				#############################################
 				# Cabeçalhos na pasta elemento_peca
 HDRS_ELEMENTO_PECA := $(wildcard $(PATH_ELEMENTO_PECA)/*.h)
+
+
+		#############################################
+		# Cabeçalhos na pasta utilitários
+HDRS_UTILITARIOS := $(wildcard $(PATH_UTILITARIOS)/*.h)
+
+
+HDRS_TODOS := $(HDRS_SRC) $(HDRS_UTILITARIOS) $(HDRS_INTERFACE) $(HDRS_DEBUG) $(HDRS_MOVIMENTOS) $(HDRS_PECAS) $(HDRS_CRIAR_PECA) $(HDRS_ELEMENTO_PECA)
 
 
 # Aqui ficam os arquivos objeto. Eles serão criados pelo makefile, mas precisam ter seus nomes especificados. As regras são as mesmas
@@ -154,53 +168,64 @@ OBJS_ELEMENTO_PECA := $(patsubst $(PATH_ELEMENTO_PECA)/%.c,build/$(PATH_ELEMENTO
 OBJS_TABULEIRO := $(patsubst $(PATH_TABULEIRO)/%.c,build/$(PATH_TABULEIRO)/%.o,$(SRCS_TABULEIRO))
 
 
+
+		#############################################
+		# Objetos da pasta utilitarios
+OBJS_UTILITARIOS := $(patsubst $(PATH_UTILITARIOS)/%.c,build/$(PATH_UTILITARIOS)/%.o,$(SRCS_UTILITARIOS))
+
+
 	#######################
 	# Todos os objetos juntos
-OBJS_TODOS := $(OBJS_SRC) $(OBJS_INTERFACE) $(OBJS_DEBUG) $(OBJS_MOVIMENTOS) $(OBJS_PECAS) $(OBJS_CRIAR_PECA) $(OBJS_ELEMENTO_PECA) $(OBJS_TABULEIRO) $(OBJS_MAIN) #
+OBJS_TODOS := $(OBJS_UTILITARIOS) $(OBJS_SRC) $(OBJS_INTERFACE) $(OBJS_DEBUG) $(OBJS_MOVIMENTOS) $(OBJS_PECAS) $(OBJS_CRIAR_PECA) $(OBJS_ELEMENTO_PECA) $(OBJS_TABULEIRO) $(OBJS_MAIN) #
 	
 
 # Aqui são gerados os arquivos objeto da interface
 build/$(PATH_INTERFACE)/%.o: $(PATH_INTERFACE)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
-build/$(SRC)/%.o: SRC/%.c
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+build/$(SRC)/%.o: SRC/%.c $(HDRS_TODOS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 build/%.o: %.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 # Aqui são gerados os arquivos objeto da depuração
 build/$(PATH_DEBUG)/%.o: $(PATH_DEBUG)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 # Aqui são gerados os arquivos objeto da pasta movimentos
 build/$(PATH_MOVIMENTOS)/%.o: $(PATH_MOVIMENTOS)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 # Aqui são gerados os arquivos objeto da pasta peca
 build/$(PATH_PECAS)/%.o: $(PATH_PECAS)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 # Aqui são gerados os arquivos objeto da pasta criar_peca
 build/$(PATH_CRIAR_PECA)/%.o: $(PATH_CRIAR_PECA)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
-# Aqui são gerados os arquivos objeto da 
+# Aqui são gerados os arquivos objeto da pasta elemento_peca
 build/$(PATH_ELEMENTO_PECA)/%.o: $(PATH_ELEMENTO_PECA)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
+
+
+# Aqui são gerados os arquivos objeto da pasta tabuleiro
+build/$(PATH_TABULEIRO)/%.o: $(PATH_TABULEIRO)/%.c $(HDRS_TODOS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
 # Aqui são gerados os arquivos objeto da 
-build/$(PATH_TABULEIRO)/%.o: $(PATH_TABULEIRO)/%.c $(HDRS_TODOS)
-	gcc -g -Wall -c -o $@ $< $(CFLAGS)
+build/$(PATH_UTILITARIOS)/%.o: $(PATH_UTILITARIOS)/%.c $(HDRS_TODOS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 # Aqui o programa é finalmente compilado
-main: $(OBJS_TODOS)
-	gcc -g -Wall $^ -o $@ -lglut -lGLU -lGL
+main: $(OBJS_TODOS) $(HDRS_TODOS)
+	gcc -ggdb -O0 -Wall $^ -o $@ -lglut -lGLU -lGL

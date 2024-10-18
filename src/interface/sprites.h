@@ -1,6 +1,8 @@
 #ifndef	SPRITE_H_
 #define SPRITE_H_
 
+#include<GL/glut.h>
+
 enum ConstantesSprites {
     PEAO_PRETA,
     TORRE_PRETA,

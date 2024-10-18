@@ -19,5 +19,6 @@ void inserirElementoPeca(struct ElementoPeca **lista, struct ElementoPeca *novoE
 		}
 		
 		aux->prox = novoElemento;
+		novoElemento->ant = aux;
 	}
 }
