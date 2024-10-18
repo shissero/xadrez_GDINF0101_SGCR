@@ -13,7 +13,13 @@ struct ElementoMovimento *movimentosDama(int coluna, int linha) {
     struct ElementoMovimento *lista = NULL;
     struct ElementoMovimento *item;
     
-       //movimentos cardeais
+       
+      // TODO: Copiar o corpo de uma função x no local onde você quer que ela seja executada tira todo o propósito dela, além de dificultar a depuração e a manutenção do código
+      // O correto é chamar a função.
+
+
+      
+      //movimentos cardeais
   
        //norte
        for (int i = 1; linha + i <= 8; i++) {
