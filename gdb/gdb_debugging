@@ -1,0 +1,144 @@
+# if gdb tries to print large amounts of data, it will print a part of it and ask you if you want to print more. Setting pagination off prevents this behaviour
+
+set pagination off
+
+# tells gdb to output to gdb_saida
+
+set logging file gdb_saida
+set logging enabled on
+
+set print pretty on
+
+
+echo \n\n\n\n\n\nInício da depuração\n\n\n\n\n\n
+
+
+define mostrar_lista_movimentos
+	while $aux != 0x0
+	
+		print *$aux->movimento
+		
+		set $aux = $aux->prox
+		
+		echo \n\n***\n\n
+	end
+end
+
+
+
+set $i_inicial = 0
+
+b src/debug/gerar_movimentos_aleatorios.c:17
+	command
+	
+	if $i_inicial < i
+	
+		echo \n\n\nMovimentos aleatórios gerados:\n\n
+
+		set $i_inicial = i
+	end
+	
+	print *item->movimento
+	
+	echo \n\n
+	
+	continue
+end
+
+
+
+b src/debug/gerar_movimentos_aleatorios.c:19
+
+	command
+	
+	printf "\n\nForam gerados %d movimentos\n\n",  $i_inicial
+	
+	mostrar_lista_movimentos lista
+	
+	continue
+end
+
+
+
+b src/game_manager/tabuleiro/tocar_peca.c:25
+	
+	command
+	
+	echo \n\n\n\nMovimentos peca tocada antes dos movimentos aleatórios:\n\n\n\n
+	
+	set $aux = MOVIMENTOS_PECA_TOCADA
+	
+	while $aux != 0x0
+	
+		print *$aux->movimento
+		
+		set $aux = $aux->prox
+		
+		echo \n\n***\n\n
+	end
+	
+	continue
+end
+
+
+
+b src/game_manager/tabuleiro/tocar_peca.c:27
+
+	command
+	
+	echo \n\n\n\nMovimentos peca tocada depois dos movimentos aleatórios:\n\n\n\n
+	
+	set $aux = MOVIMENTOS_PECA_TOCADA
+	
+	while $aux != 0x0
+	
+		print *$aux->movimento
+		
+		set $aux = $aux->prox
+		
+		echo \n\n***\n\n
+	end
+	
+	continue
+end
+
+
+
+b src/interface/desenhar_movimentos_possiveis.c:10
+
+	command
+	
+	echo \n\n\n\nMovimentos na variável movimentos :\n\n\n\n
+	
+	set $aux = movimentos
+	
+	while $aux != 0x0
+	
+		print *$aux->movimento
+		
+		set $aux = $aux->prox
+		
+		echo \n\n***\n\n
+	end
+	
+	continue
+end
+
+
+
+run
+
+
+
+
+
+echo \n\n\n\n\n\nFim da depuração\n\n\n\n\n\n
+
+set $pular_linhas = 20
+
+while($pular_linhas > 0)
+
+	echo ************************************************************************************************************\n
+	
+	set $pular_linhas--
+end

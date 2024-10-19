@@ -1,0 +1,12 @@
+b src/interface/funcao_mouse.c:14
+
+	command
+	
+	printf "Estado clique vale %d\n", ESTADO_CLIQUE
+	
+	continue
+end
+
+
+
+run
