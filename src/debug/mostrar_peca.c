@@ -6,7 +6,7 @@ void mostrarPeca(struct Peca *mostranda){
 
 	printf("\n\n**Mostrando uma peça**\n\n");
 	
-	printf("Tipo: ");
+	printf("Tipo: %d ", mostranda->sprite);
 	
 	switch(mostranda->tipoPeca){
 	

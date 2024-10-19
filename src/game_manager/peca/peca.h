@@ -3,8 +3,8 @@
 
 enum Pecas {
     PEAO,
-    CAVALO,
     TORRE,
+    CAVALO,
     BISPO,
     DAMA,
     REI
@@ -21,7 +21,7 @@ struct Peca {
   int cor;
   int posicao [2];
   int primMov;
-  
+  int sprite;
 };
 
 #endif

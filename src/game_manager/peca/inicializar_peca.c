@@ -19,5 +19,10 @@ void inicializarPeca (struct Peca *ptrpeca, int tipoPeca, int cor, int coluna, i
     	ptrpeca->posicao[0] = coluna;
     	ptrpeca->posicao[1] = linha;
     	ptrpeca->primMov = primeiroMovimento;
+    	
+    	// As constantes de sprite estão na mesma ordem que as constantes de peça
+    	// Como as pretas vêm primeiro, tipoPeca corresponde exatamente à sprite correta
+    	// Para as brancas, basta adicionar o número de sprites pretas que vêm antes da primeira sprite branca
+    	ptrpeca->sprite = cor == PRETA ? tipoPeca : tipoPeca + 6;
     }
 }
