@@ -12,7 +12,7 @@ struct Peca *buscarPeca(struct ElementoPeca *lista, int coluna, int linha){
 		
 		aux = lista -> peca;
 		
-		if( (aux -> posicao[0] == coluna) && (aux -> posicao[1] == linha) ){
+		if( (aux -> coluna == coluna) && (aux -> linha == linha) ){
 		
 			procuranda = aux;
 			break;

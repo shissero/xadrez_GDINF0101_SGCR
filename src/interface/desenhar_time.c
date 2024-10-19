@@ -12,7 +12,7 @@ void desenharTime(struct ElementoPeca *time, float largura){
 		
 		glPushMatrix();
 		
-		glTranslatef( (aux->posicao[0]-1)*largura, (aux->posicao[1]-1)*largura, 0.0f );
+		glTranslatef( (aux->coluna-1)*largura, (aux->linha-1)*largura, 0.0f );
 		
 		desenharSprite(aux->sprite, largura, largura);
 		
