@@ -56,7 +56,7 @@ void mostrarPeca(struct Peca *mostranda){
 			printf("cor desconhecida");
 	}
 	
-	printf("\n\nPosição: (%d, %d)\n", mostranda->posicao[0], mostranda->posicao[1]);
+	printf("\n\nPosição: (%d, %d)\n", mostranda->coluna, mostranda->linha);
 	
 	if(mostranda->tipoPeca == PEAO || mostranda->tipoPeca == TORRE || mostranda->tipoPeca == REI){
 	

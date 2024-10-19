@@ -19,7 +19,8 @@ struct Peca {
 
   int tipoPeca;
   int cor;
-  int posicao [2];
+  int coluna;
+  int linha;
   int primMov;
   int sprite;
 };

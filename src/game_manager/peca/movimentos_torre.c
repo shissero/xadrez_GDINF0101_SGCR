@@ -3,7 +3,7 @@
 #include "../movimentos/elemento_movimento.h"
 #include "movimentos_torre.h"
 
-struct ElementoMovimento *movimentosTorre(int coluna, int linha) {
+struct ElementoMovimento *movimentosTorre(struct Peca *peca) {
 
-  return movimentosCardeais(coluna, linha);
+  return movimentosCardeais(peca->coluna, peca->linha);
 }
