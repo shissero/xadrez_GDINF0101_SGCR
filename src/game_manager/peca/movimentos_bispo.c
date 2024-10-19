@@ -3,7 +3,7 @@
 #include "../movimentos/elemento_movimento.h"
 #include "movimentos_bispo.h"
 
-struct ElementoMovimento *movimentosBispo(int coluna, int linha) {
+struct ElementoMovimento *movimentosBispo(struct Peca *peca) {
 
-  return movimentosColaterais(coluna, linha);
+  return movimentosColaterais(peca-> coluna, peca->linha);
 }

@@ -5,19 +5,20 @@
 #include "../movimentos/criar_elemento_movimento.h"
 #include "../movimentos/elemento_movimento.h"
 #include "../movimentos/inserir_elemento_movimento.h"
+#include "peca.h"
 
-struct ElementoMovimento *movimentosPeao(int coluna, int linha, int cor, int primeiroMovimento) {
+struct ElementoMovimento *movimentosPeao(struct Peca *peca) {
 
   struct ElementoMovimento *lista = NULL;
   struct ElementoMovimento *item;
   
   //Quando o peão chega aos limites do tabuleiro ele vira outra peça, portanto não se faz necessário checar os limites
-  item = criarElementoMovimento(coluna, linha + cor, DESLOCAMENTO);
+  item = criarElementoMovimento(peca->coluna, peca->linha + peca->cor, DESLOCAMENTO);
   inserirElementoMovimento(&lista, item);
     
   if(primeiroMovimento) {
     
-      item = criarElementoMovimento(coluna, linha + (2*cor), DESLOCAMENTO);
+      item = criarElementoMovimento(peca->coluna, peca->linha + (2*peca->cor), DESLOCAMENTO);
       inserirElementoMovimento(&lista, item);  
   } 
   
