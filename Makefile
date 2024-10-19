@@ -26,7 +26,8 @@ SRCS_DEBUG := $(wildcard $(PATH_DEBUG)/*.c)
 
 		#############################################
 		# Fontes na pasta game_manager
-
+PATH_MANAGER := src/game_manager
+SRCS_MANAGER := $(wildcard $(PATH_MANAGER)/*.c)
 
 			#############################################
 			# Fontes na pasta movimentos
@@ -87,7 +88,7 @@ HDRS_DEBUG := $(wildcard $(PATH_DEBUG)/*.h)
 
 		#############################################
 		# Cabeçalhos na pasta game_manager
-
+HDRS_MANAGER := $(wildcard $(PATH_MANAGER)/*.h)
 
 			#############################################
 			# Cabeçalhos na pasta movimentos
@@ -109,12 +110,17 @@ HDRS_CRIAR_PECA := $(wildcard $(PATH_CRIAR_PECA)/*.h)
 HDRS_ELEMENTO_PECA := $(wildcard $(PATH_ELEMENTO_PECA)/*.h)
 
 
+			#############################################
+			# Cabeçalhos na pasta tabuleiro
+HDRS_TABULEIRO := $(wildcard $(PATH_TABULEIRO)/*.h)
+
+
 		#############################################
 		# Cabeçalhos na pasta utilitários
 HDRS_UTILITARIOS := $(wildcard $(PATH_UTILITARIOS)/*.h)
 
 
-HDRS_TODOS := $(HDRS_SRC) $(HDRS_UTILITARIOS) $(HDRS_INTERFACE) $(HDRS_DEBUG) $(HDRS_MOVIMENTOS) $(HDRS_PECAS) $(HDRS_CRIAR_PECA) $(HDRS_ELEMENTO_PECA)
+HDRS_TODOS := $(HDRS_SRC) $(HDRS_UTILITARIOS) $(HDRS_INTERFACE) $(HDRS_DEBUG) $(HDRS_MOVIMENTOS) $(HDRS_PECAS) $(HDRS_CRIAR_PECA) $(HDRS_ELEMENTO_PECA) $(HDRS_TABULEIRO) $(HDRS_MANAGER)
 
 
 # Aqui ficam os arquivos objeto. Eles serão criados pelo makefile, mas precisam ter seus nomes especificados. As regras são as mesmas
@@ -141,6 +147,7 @@ OBJS_DEBUG := $(patsubst $(PATH_DEBUG)/%.c,build/$(PATH_DEBUG)/%.o,$(SRCS_DEBUG)
 
 		#############################################
 		# Objetos da pasta game_manager
+OBJS_MANAGER := $(patsubst $(PATH_MANAGER)/%.c,build/$(PATH_MANAGER)/%.o,$(SRCS_MANAGER))
 
 
 			#############################################
@@ -176,7 +183,7 @@ OBJS_UTILITARIOS := $(patsubst $(PATH_UTILITARIOS)/%.c,build/$(PATH_UTILITARIOS)
 
 	#######################
 	# Todos os objetos juntos
-OBJS_TODOS := $(OBJS_UTILITARIOS) $(OBJS_SRC) $(OBJS_INTERFACE) $(OBJS_DEBUG) $(OBJS_MOVIMENTOS) $(OBJS_PECAS) $(OBJS_CRIAR_PECA) $(OBJS_ELEMENTO_PECA) $(OBJS_TABULEIRO) $(OBJS_MAIN) #
+OBJS_TODOS := $(OBJS_UTILITARIOS) $(OBJS_SRC) $(OBJS_INTERFACE) $(OBJS_DEBUG) $(OBJS_MOVIMENTOS) $(OBJS_PECAS) $(OBJS_CRIAR_PECA) $(OBJS_ELEMENTO_PECA) $(OBJS_TABULEIRO) $(OBJS_MANAGER) $(OBJS_MAIN) #
 	
 
 # Aqui são gerados os arquivos objeto da interface
@@ -184,7 +191,11 @@ build/$(PATH_INTERFACE)/%.o: $(PATH_INTERFACE)/%.c $(HDRS_TODOS)
 	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 
-build/$(SRC)/%.o: SRC/%.c $(HDRS_TODOS)
+build/$(PATH_MANAGER)/%.o: $(PATH_MANAGER)/%.c $(HDRS_TODOS)
+	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
+
+
+build/$(SRC)/%.o: $(SRC)/%.c $(HDRS_TODOS)
 	gcc -ggdb -O0 -Wall -c -o $@ $< $(CFLAGS)
 
 

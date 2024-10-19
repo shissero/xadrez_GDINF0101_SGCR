@@ -1,0 +1,89 @@
+
+
+
+
+
+
+Início da depuração
+
+
+
+
+
+Breakpoint 1 at 0x4053: file testes.c, line 30.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdf98) at testes.c:30
+30		return 0;
+$1 = (struct Peca *) 0x55561370
+[Inferior 1 (process 14655) exited normally]
+
+
+
+
+
+
+Início da depuração
+
+
+
+
+
+Breakpoint 1 at 0x4053: file testes.c, line 30.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdf98) at testes.c:30
+30		return 0;
+gdb/testes_debug:32: Error in sourced command file:
+Cannot access memory at address 0x55561370
+
+
+
+
+
+
+Início da depuração
+
+
+
+
+
+Breakpoint 1 at 0x404c: file testes.c, line 31.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdf98) at testes.c:31
+31		return 0;
+$1 = {
+  tipoPeca = 1,
+  cor = 1,
+  posicao = {1, 1},
+  primMov = 1,
+  sprite = 7
+}
+[Inferior 1 (process 14877) exited normally]
+
+
+
+
+
+
+Início da depuração
+
+
+
+
+
+Breakpoint 1 at 0x404c: file testes.c, line 31.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffdf98) at testes.c:31
+31		return 0;
+
+
+Nada encontrado
+
+[Inferior 1 (process 15047) exited normally]

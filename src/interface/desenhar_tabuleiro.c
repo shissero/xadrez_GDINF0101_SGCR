@@ -15,23 +15,29 @@
 void desenharTabuleiro(){
 	
 	// A função que desenha as casas começa pelo canto inferior esquerdo do quadrado, então é necessário transladar o sistema
-	// Essa implementação é simples porque o volume de projeção é simétrico em relação à origem
+	// Essa implementação é tão simples porque o volume de projeção é simétrico em relação à origem
 	glTranslatef(TELA_TABULEIRO.esquerdo, TELA_TABULEIRO.inferior, 0.0);
 
 	float tam_casa = (TELA_TABULEIRO.direito - TELA_TABULEIRO.esquerdo)/8.0f;
 	
+	
+	// Desenha-se as casas
 	glPushMatrix();
 			
 	desenharCasas(tam_casa);
  		
  	glPopMatrix();
  	
+ 	
+ 	// Marca-se as casas para onde é possível mover a peça escolhida
  	glPushMatrix();
 			
 	desenharMovimentosPossiveis(tam_casa);
  		
  	glPopMatrix();
  			
+ 	
+ 	// Desenha-se as peças
  	glPushMatrix();
 			
 	desenharPecas(tam_casa);

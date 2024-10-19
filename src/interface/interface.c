@@ -28,8 +28,8 @@ void iniciarUI(int *argc, char** argv){
 	glutInitWindowSize(800, 800);
 	glutCreateWindow("Xadrez");
 	
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
 	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
 
 	// Tell GLUT that whenever the main window needs to be repainted that it
 	// should call the function display().

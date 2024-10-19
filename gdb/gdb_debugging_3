@@ -1,0 +1,113 @@
+# if gdb tries to print large amounts of data, it will print a part of it and ask you if you want to print more. Setting pagination off prevents this behaviour
+
+set pagination off
+
+# tells gdb to output to gdb_saida
+
+set logging file gdb_saida
+set logging enabled on
+
+set print pretty on
+
+
+echo \n\n\n\n\n\nInício da depuração\n\n\n\n\n\n
+
+
+
+define mostrar_lista_movimentos
+	
+	while $arg0 != 0x0
+	
+		print *$arg0->movimento
+		
+		set $arg0 = $arg0->prox
+	end
+	
+	echo \n\n***\n\n
+end
+
+
+
+b src/interface/desenhar_movimentos_possiveis.c:9 if TABULEIRO->MovimentosPecaTocada != 0x0
+
+	command
+	
+	info threads
+	
+	echo \n\n\n\nMovimentos em ${TABULEIRO->MovimentosPecaTocada} quando desenhar_movimentos_possiveis foi chamada:\n\n\n\n
+	
+	mostrar_lista_movimentos TABULEIRO->MovimentosPecaTocada
+	
+	continue
+end
+
+
+
+b src/game_manager/administrador_jogo.c:7
+
+	command
+	
+	info threads
+	
+	echo \n\n\n\nPeca em ${TABULEIRO->PecaTocada} quando administrador_jogo foi chamada:\n\n\n\n
+	
+	if TABULEIRO->PecaTocada != 0x0
+		print *TABULEIRO->PecaTocada
+	end
+	
+	echo \n\n\n\nMovimentos em ${TABULEIRO->MovimentosPecaTocada} quando administrador_jogo foi chamada:\n\n\n\n
+	
+	#mostrar_lista_movimentos TABULEIRO->MovimentosPecaTocada
+	
+	continue
+end
+
+
+
+b src/game_manager/administrador_jogo.c:12
+
+	command
+	
+	info threads
+	
+	echo \n\n\n\nPeca em ${TABULEIRO->PecaTocada} quando administrador_jogo chegou à sua linha 12:\n\n\n\n
+	
+	if TABULEIRO->PecaTocada != 0x0
+		print *TABULEIRO->PecaTocada
+	end
+	
+	echo \n\n\n\nMovimentos em ${TABULEIRO->MovimentosPecaTocada} quando administrador_jogo chegou à sua linha 12:\n\n\n\n
+	
+	#mostrar_lista_movimentos TABULEIRO->MovimentosPecaTocada
+	
+	continue
+end
+
+
+
+b src/debug/gerar_movimentos_aleatorios.c:9
+
+	command
+	
+	info threads
+	
+	echo \n\n\n\nPeca em ${TABULEIRO->PecaTocada} quando gerar_movimentos_aleatorios foi chamada:\n\n\n\n
+	
+	if TABULEIRO->PecaTocada != 0x0
+		print *TABULEIRO->PecaTocada
+	end
+	
+	continue
+end
+
+
+b glutPostRedisplay
+	command
+	
+	backtrace
+	
+	continue
+end
+
+
+run
