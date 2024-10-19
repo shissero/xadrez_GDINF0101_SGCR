@@ -8,7 +8,7 @@
 #include "../movimentos/inserir_elemento_movimento.h"
 
 // Função para gerar movimentos cardeais
-struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
+struct ElementoMovimento *movimentosCardeais(int coluna, int linha, int reichamou) {
   
   
   struct ElementoMovimento *lista = NULL;
@@ -21,6 +21,8 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
   
     item = criarElementoMovimento(coluna, linha + i, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
+    
+    if(reichamou) break;
   };
   
   //sul 
@@ -28,6 +30,8 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
   
     item = criarElementoMovimento(coluna, linha - i, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
+    
+    if(reichamou) break;
   };
   
   //leste
@@ -35,6 +39,8 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
   
     item = criarElementoMovimento(coluna + i, linha, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
+    
+    if(reichamou) break;
   };
   
   //oeste
@@ -42,6 +48,8 @@ struct ElementoMovimento *movimentosCardeais(int coluna, int linha) {
   
     item = criarElementoMovimento(coluna - i, linha, DESLOCAMENTO);
     inserirElementoMovimento (&lista, item);
+    
+    if(reichamou) break;
   };
   
   return lista;

@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-struct ElementoMovimento *movimentosColaterais (int, int);
+struct ElementoMovimento *movimentosColaterais (int, int, int);
 
 #endif

@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-void movimentosPeao(int, int, int);
+struct ElementoMovimento *movimentosPeao(int, int, int, int);
 
 #endif

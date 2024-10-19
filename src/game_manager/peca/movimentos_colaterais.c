@@ -7,7 +7,7 @@
 #include "../movimentos/inserir_elemento_movimento.h"
 
  //função para gerar movimentos colaterais
-struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
+struct ElementoMovimento *movimentosColaterais(int coluna, int linha, int reichamou) {
 
   struct ElementoMovimento *lista = NULL;
   struct ElementoMovimento *item;
@@ -19,6 +19,8 @@ struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
         
             item = criarElementoMovimento(coluna + i, linha + i, DESLOCAMENTO);
             inserirElementoMovimento (&lista, item);
+            
+            if(reichamou) break;
         }
         
         // Noroeste 
@@ -26,6 +28,8 @@ struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
         
             item = criarElementoMovimento(coluna - i, linha + i, DESLOCAMENTO);
             inserirElementoMovimento (&lista, item);
+            
+            if(reichamou) break;
         }
         
         // Sudeste
@@ -33,6 +37,8 @@ struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
         
             item = criarElementoMovimento(coluna + i, linha - i, DESLOCAMENTO);
             inserirElementoMovimento (&lista, item);
+            
+            if(reichamou) break;
         }
         
         // Sudoeste
@@ -40,6 +46,8 @@ struct ElementoMovimento *movimentosColaterais(int coluna, int linha) {
         
             item = criarElementoMovimento(coluna - i, linha - i, DESLOCAMENTO);
             inserirElementoMovimento (&lista, item);
+            
+            if(reichamou) break;
         }
         
   return lista;    
