@@ -27,7 +27,7 @@ struct ElementoMovimento *movimentosDama(struct Tabuleiro *tabuleiro, struct Pec
       aux = aux->prox;
     }
     
-    excluirListaMovimentos(lista2);
+    excluirListaMovimentos(&lista2);
 
     return lista1;
 }
