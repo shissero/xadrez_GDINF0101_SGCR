@@ -8,6 +8,7 @@
 #include"../movimentos/movimento.h"
 #include"../movimentos/excluir_lista_movimentos.h"
 #include"../peca/peca.h"
+#include"buscar_adversaria.h"
 
 void executarMovimento(struct Movimento*);
 
