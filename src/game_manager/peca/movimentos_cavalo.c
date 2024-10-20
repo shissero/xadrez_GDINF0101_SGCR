@@ -5,56 +5,64 @@
 #include "../movimentos/criar_elemento_movimento.h"
 #include "../movimentos/elemento_movimento.h"
 #include "../movimentos/inserir_elemento_movimento.h"
+#include "../movimentos/remover_elemento_movimento.h"
+#include "../../globais.h"
 
  //função para gerar movimentos do Cavalo
-struct ElementoMovimento *movimentosCavalo(int coluna, int linha) {
+struct ElementoMovimento *movimentosCavalo(struct Peca *peca) {
     
     struct ElementoMovimento *lista = NULL;
-    struct ElementoMovimento *item;
-    int movimentos[8][2];
+    struct ElementoMovimento *aux_item;
   
-    if (linha >= 1 && linha <= 8 && coluna >= 1 && coluna <= 8) {
-    
         // Cima-esquerda
-        movimentos[0][0] = linha + 2; 
-        movimentos[0][1] = coluna - 1;
+        aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha + 2, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item);
     
         // Cima-direita
-        movimentos[1][0] = linha + 2; 
-        movimentos[1][1] = coluna + 1; 
+        aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha + 2, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item); 
     
         // Baixo-esquerda
-        movimentos[2][0] = linha - 2; 
-        movimentos[2][1] = coluna - 1; 
+        aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha - 2, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item); 
     
         // Baixo-direita
-        movimentos[3][0] = linha - 2; 
-        movimentos[3][1] = coluna + 1; 
+        aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha - 2, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item); 
     
         // Esquerda-cima
-        movimentos[4][0] = linha + 1; 
-        movimentos[4][1] = coluna - 2; 
-    
-        // Direita-cima
-        movimentos[5][0] = linha + 1; 
-        movimentos[5][1] = coluna + 2; 
+        aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha + 1, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item); 
     
         // Esquerda-baixo
-        movimentos[6][0] = linha - 1; 
-        movimentos[6][1] = coluna - 2; 
+        aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha - 1, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item);  
+    
+        // Direita-cima
+        aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha + 1, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item);
     
         // Direita-baixo
-        movimentos[7][0] = linha - 1; 
-        movimentos[7][1] = coluna + 2;
-    }
+        aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha - 1, DESLOCAMENTO);
+	inserirElementoMovimento(&lista, aux_item);
   
-    for(int i = 0; i < 8; i++){
-        
-        if(movimentos[i][1] >= 1 && movimentos[i][1] <= 8 && movimentos[i][0] >= 1 && movimentos[i][0] <= 8){
-        
-            item = criarElementoMovimento(movimentos[i][1], movimentos[i][0], DESLOCAMENTO);
-            inserirElementoMovimento (&lista, item);
-        }
+    
+    
+    struct ElementoMovimento *aux_lista = lista;
+    
+    while(aux_lista != NULL){
+    
+    	int aux_coluna = aux_lista->movimento->coluna_destino;
+    	int aux_linha = aux_lista->movimento->linha_destino;
+    	
+    	aux_item = aux_lista;
+    		
+    	aux_lista = aux_lista->prox;
+    	
+    	if(aux_coluna < 1 || aux_coluna > 8 || aux_linha < 1 || aux_linha > 8){
+    	
+    		removerElementoMovimento(&lista, aux_item, VERDADEIRO);
+    	}
     }
   
     return lista;

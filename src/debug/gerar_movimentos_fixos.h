@@ -3,6 +3,6 @@
 
 #include <stddef.h>
 
-struct ElementoMovimento *gerarMovimentosFixos();
+struct ElementoMovimento *gerarMovimentosFixos(int);
 
 #endif
