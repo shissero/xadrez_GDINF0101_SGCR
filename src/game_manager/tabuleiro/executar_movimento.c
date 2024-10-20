@@ -6,14 +6,24 @@ void executarMovimento(struct Movimento *movimento){
 	
 	movenda->coluna = movimento->coluna_destino;
 	movenda->linha = movimento->linha_destino;
+	movenda->primMov = FALSO;
+	
 	
 	if(movimento->natureza == CAPTURA){
 	
-		struct ElementoPeca *capturanda = buscarAdversaria(TABULEIRO, movimento->coluna_destino, movimento->linha_destino);
-		removerElementoPeca( &(TABULEIRO->Aliadas), capturanda, VERDADEIRO);
+		removerElementoPecaPos( TABULEIRO->Adversarias, movimento->coluna_destino, movimento->linha_destino, VERDADEIRO);
 	}
 	
-	excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );
+	
+	
+	//struct ElementoPeca *intermediaria = TABULEIRO->Adversarias;
+	
+	//TABULEIRO->Adversarias = TABULEIRO->Aliadas;
+	//TABULEIRO->Aliadas = intermediaria;
+	
+	//TABULEIRO->PecaTocada = NULL;
+	
+	//excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );
 	
 	glutPostRedisplay();
 }
