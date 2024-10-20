@@ -5,6 +5,6 @@
 #include"peca.h"
 #include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosBispo (struct Tabuleiro *tabuleiro, struct Peca *peca);
+struct ElementoMovimento *movimentosBispo (struct Tabuleiro *, struct Peca *);
 
 #endif
