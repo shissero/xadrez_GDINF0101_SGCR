@@ -1,9 +1,15 @@
 #ifndef DESENHAR_TABULEIRO_H_
 #define DESENHAR_TABULEIRO_H_
 
-#define V_PRETO_3F {0.0f, 0.0f, 0.0f}
-#define V_LILAS_3F {0.5f, 0.0f, 0.5f}
-#define Z_CASAS_TABULEIRO -20
+#include<GL/glut.h>
+#include <stdio.h>
+
+#include"desenhar_pecas.h"
+#include"desenhar_movimentos_possiveis.h"
+#include"desenhar_sprite.h"
+#include"interface.h"
+#include"volume_de_projecao.h"
+#include"../game_manager/peca/peca.h"
 
 void desenharTabuleiro();
 

@@ -11,6 +11,7 @@
 #include"../peca/elemento_peca/elemento_peca.h"
 #include"../peca/elemento_peca/buscar_peca.h"
 #include"buscar_aliada.h"
+#include"../peca/gerar_movimentos.h"
 
 // Retorna verdadeiro se uma peça for tocada
 // Caso contrário, retorna falso

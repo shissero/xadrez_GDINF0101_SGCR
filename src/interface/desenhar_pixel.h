@@ -3,6 +3,6 @@
 
 #include<GL/glut.h>
 
-void desenharPixel(float, GLubyte, GLubyte, GLubyte, GLubyte);
+
 
 #endif
