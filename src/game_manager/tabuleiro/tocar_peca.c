@@ -11,6 +11,7 @@
 #include"../peca/elemento_peca/elemento_peca.h"
 #include"../peca/elemento_peca/buscar_peca.h"
 #include"buscar_aliada.h"
+#include"../peca/gerar_movimentos.h"
 
 // Retorna verdadeiro se uma peça for tocada
 // Caso contrário, retorna falso
@@ -23,7 +24,7 @@ void tocarPeca(int coluna, int linha){
 	// Se uma peça for encontrada, gera-se os movimentos
 	if( TABULEIRO->PecaTocada != NULL ){
 	
-		TABULEIRO->MovimentosPecaTocada = gerarMovimentos(TABULEIRO->PecaTocada);
+		TABULEIRO->MovimentosPecaTocada = gerarMovimentos(TABULEIRO, TABULEIRO->PecaTocada);
 		
 		
 		// Se não houver movimentos possíveis para aquela peça, voltamos TABULEIRO->PecaTocada para seu estado inicial

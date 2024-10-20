@@ -2,7 +2,8 @@
 #define MOVIMENTOS_COLATERAIS_H_
 
 #include"peca.h"
+#include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosColaterais (int, int, int);
+struct ElementoMovimento *movimentosColaterais (struct Tabuleiro *tabuleiro, struct Peca *peca, int);
 
 #endif

@@ -10,19 +10,18 @@
 #include "../movimentos/inserir_elemento_movimento.h"
 #include "movimentos_rei.h"
 #include "../movimentos/excluir_lista.h"
+#include "../tabuleiro/tabuleiro.h"
 
  //função para gerar movimentos do Rei
-struct ElementoMovimento *movimentosRei(struct Peca *peca) {
+struct ElementoMovimento *movimentosRei(struct Tabuleiro *tabuleiro, struct Peca *peca) {
     
     
     struct ElementoMovimento *lista1 = movimentosCardeais(peca->coluna, peca->linha, 1);
-    struct ElementoMovimento *lista2 = movimentosColaterais(peca->coluna, peca->linha, 1);
-    struct ElementoMovimento *item;
+    struct ElementoMovimento *lista2 = movimentosColaterais(tabuleiro, peca, 1);
     struct ElementoMovimento *aux = lista2;
     
     while(aux != NULL){
       
-      item = aux;
       struct ElementoMovimento *copia = copiarElementoMovimento(aux);
       inserirElementoMovimento(&lista1, copia);
       aux = aux->prox;
