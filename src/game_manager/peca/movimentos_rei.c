@@ -9,7 +9,7 @@
 #include "../movimentos/elemento_movimento.h"
 #include "../movimentos/inserir_elemento_movimento.h"
 #include "movimentos_rei.h"
-#include "../movimentos/excluir_lista.h"
+#include "../movimentos/excluir_lista_movimentos.h"
 #include "../tabuleiro/tabuleiro.h"
 
  //função para gerar movimentos do Rei
@@ -27,7 +27,7 @@ struct ElementoMovimento *movimentosRei(struct Tabuleiro *tabuleiro, struct Peca
       aux = aux->prox;
     }
     
-    excluirLista(lista2);
+    excluirListaMovimentos(&lista2);
   
     
     return lista1;
