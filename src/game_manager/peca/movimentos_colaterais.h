@@ -4,6 +4,6 @@
 #include"peca.h"
 #include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosColaterais (struct Tabuleiro *tabuleiro, struct Peca *peca, int);
+struct ElementoMovimento *movimentosColaterais (struct Tabuleiro *, struct Peca *, int);
 
 #endif

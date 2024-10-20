@@ -10,8 +10,8 @@
 #include "../tabuleiro/buscar_adversaria.h"
 
 
- //função para gerar movimentos colaterais
-struct ElementoMovimento *movimentosColaterais(struct Tabuleiro *tabuleiro, struct Peca *peca, int reichamou) {
+  //função para gerar movimentos colaterais
+  struct ElementoMovimento *movimentosColaterais(struct Tabuleiro *tabuleiro, struct Peca *peca, int reichamou) {
 
   struct ElementoMovimento *lista = NULL;
   struct ElementoMovimento *item;
