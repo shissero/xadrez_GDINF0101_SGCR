@@ -23,7 +23,7 @@ void tocarPeca(int coluna, int linha){
 	// Se uma peça for encontrada, gera-se os movimentos
 	if( TABULEIRO->PecaTocada != NULL ){
 	
-		TABULEIRO->MovimentosPecaTocada = gerarMovimentosAleatorios();
+		TABULEIRO->MovimentosPecaTocada = gerarMovimentos(TABULEIRO->PecaTocada);
 		
 		
 		// Se não houver movimentos possíveis para aquela peça, voltamos TABULEIRO->PecaTocada para seu estado inicial
