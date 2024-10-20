@@ -1,46 +1,28 @@
-#include<GL/glut.h>
-#include <stdio.h>
-
-#include"desenhar_pecas.h"
 #include"desenhar_tabuleiro.h"
-#include"desenhar_movimentos_possiveis.h"
-#include"desenhar_sprite.h"
-#include"interface.h"
-#include"desenhar_casas.h"
-#include"volume_de_projecao.h"
-#include"../game_manager/peca/peca.h"
 
-// Essa função desenha um tabuleiro de xadrez - peças e casas
-// A origem do sistema deve estar no centro do volume de projeção
+// Esta função desenha um tabuleiro de xadrez - peças e casas
+// Ela presume que a origem do sistema de coordenadas está no centro da tela e que os eixos x e y do volume de projeção são simétricos em relação à origem
 void desenharTabuleiro(){
 	
-	// A função que desenha as casas começa pelo canto inferior esquerdo do quadrado, então é necessário transladar o sistema
-	// Essa implementação é tão simples porque o volume de projeção é simétrico em relação à origem
+	// Copia-se a matriz atual para que as transformações executadas pela função possam ser descartadas com facilidade
+ 	glPushMatrix();
+ 	
+ 	
+ 	// A função que desenha as casas começa pelo canto inferior esquerdo do quadrado, então é necessário transladar o sistema
 	glTranslatef(TELA_TABULEIRO.esquerdo, TELA_TABULEIRO.inferior, 0.0);
-
-	float tam_casa = (TELA_TABULEIRO.direito - TELA_TABULEIRO.esquerdo)/8.0f;
 	
 	
 	// Desenha-se as casas
-	glPushMatrix();
-			
-	desenharCasas(tam_casa);
- 		
- 	glPopMatrix();
+	desenharCasas(TAM_CASA);
  	
  	
  	// Marca-se as casas para onde é possível mover a peça escolhida
- 	glPushMatrix();
-			
-	desenharMovimentosPossiveis(tam_casa);
- 		
- 	glPopMatrix();
+ 	desenharMovimentosPossiveis(TAM_CASA);
  			
  	
  	// Desenha-se as peças
- 	glPushMatrix();
-			
-	desenharPecas(tam_casa);
- 		
+ 	desenharPecas(TAM_CASA);
+ 	
+ 	
  	glPopMatrix();
 }
