@@ -7,8 +7,10 @@
 #include "movimentos_dama.h"
 #include "movimentos_rei.h"
 #include "../movimentos/elemento_movimento.h"
+#include "../tabuleiro/tabuleiro.h"
+#include "peca.h"
 
-struct ElementoMovimento *gerarMovimentos(struct Peca *peca) {
+struct ElementoMovimento *gerarMovimentos(struct Tabuleiro *tabuleiro, struct Peca *peca) {
     
     struct ElementoMovimento *lista = NULL;
     
@@ -27,15 +29,15 @@ struct ElementoMovimento *gerarMovimentos(struct Peca *peca) {
     break;
     
     case BISPO:
-      lista = movimentosBispo(peca);
+      lista = movimentosBispo(tabuleiro, peca);
     break;
     
     case DAMA:
-      lista = movimentosDama(peca);
+      lista = movimentosDama(tabuleiro, peca);
     break;
     
     case REI:
-      lista = movimentosRei(peca);
+      lista = movimentosRei(tabuleiro, peca);
     break;
     
     }

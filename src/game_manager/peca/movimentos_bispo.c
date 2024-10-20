@@ -2,8 +2,9 @@
 #include "movimentos_colaterais.h"
 #include "../movimentos/elemento_movimento.h"
 #include "movimentos_bispo.h"
+#include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosBispo(struct Peca *peca) {
+struct ElementoMovimento *movimentosBispo(struct Tabuleiro *tabuleiro, struct Peca *peca) {
 
-  return movimentosColaterais(peca->coluna, peca->linha, 0);
+  return movimentosColaterais(tabuleiro, peca, 0);
 }

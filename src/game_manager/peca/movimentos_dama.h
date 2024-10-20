@@ -2,7 +2,8 @@
 #define MOVIMENTOS_DAMA_H_
 
 #include"peca.h"
+#include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosDama(struct Peca *peca);
+struct ElementoMovimento *movimentosDama(struct Tabuleiro *tabuleiro, struct Peca *peca);
 
 #endif
