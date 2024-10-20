@@ -12,11 +12,11 @@
 #include "../movimentos/excluir_lista.h"
 
 
-struct ElementoMovimento *movimentosDama(int coluna, int linha) {
+struct ElementoMovimento *movimentosDama(struct Peca *peca) {
       
     
-    struct ElementoMovimento *lista1 = movimentosCardeais(coluna, linha);
-    struct ElementoMovimento *lista2 = movimentosColaterais(coluna, linha);
+    struct ElementoMovimento *lista1 = movimentosCardeais(peca->coluna, peca->linha, 0);
+    struct ElementoMovimento *lista2 = movimentosColaterais(peca->coluna, peca->linha, 0);
     struct ElementoMovimento *item;
     struct ElementoMovimento *aux = lista2;
     

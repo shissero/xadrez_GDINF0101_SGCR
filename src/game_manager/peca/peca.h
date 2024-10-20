@@ -23,6 +23,7 @@ struct Peca {
   int linha;
   int primMov;
   int sprite;
+  struct ElementoMovimento *(*gerarMovimentos)(struct Peca *peca);  
 };
 
 #endif

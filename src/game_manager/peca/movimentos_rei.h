@@ -3,6 +3,6 @@
 
 #include"peca.h"
 
-struct ElementoMovimento *movimentosRei(int, int);
+struct ElementoMovimento *movimentosRei(struct Peca *peca);
 
 #endif

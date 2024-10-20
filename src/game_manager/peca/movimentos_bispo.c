@@ -5,5 +5,5 @@
 
 struct ElementoMovimento *movimentosBispo(struct Peca *peca) {
 
-  return movimentosColaterais(peca-> coluna, peca->linha);
+  return movimentosColaterais(peca->coluna, peca->linha, 0);
 }

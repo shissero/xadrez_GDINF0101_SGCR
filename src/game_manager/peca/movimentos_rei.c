@@ -12,10 +12,11 @@
 #include "../movimentos/excluir_lista.h"
 
  //função para gerar movimentos do Rei
-struct ElementoMovimento *movimentosRei(int coluna, int linha) {
+struct ElementoMovimento *movimentosRei(struct Peca *peca) {
     
-    struct ElementoMovimento *lista1 = movimentosCardeais(coluna, linha, 1);
-    struct ElementoMovimento *lista2 = movimentosColaterais(coluna, linha, 1);
+    
+    struct ElementoMovimento *lista1 = movimentosCardeais(peca->coluna, peca->linha, 1);
+    struct ElementoMovimento *lista2 = movimentosColaterais(peca->coluna, peca->linha, 1);
     struct ElementoMovimento *item;
     struct ElementoMovimento *aux = lista2;
     

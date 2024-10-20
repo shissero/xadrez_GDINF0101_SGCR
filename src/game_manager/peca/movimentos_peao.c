@@ -16,7 +16,7 @@ struct ElementoMovimento *movimentosPeao(struct Peca *peca) {
   item = criarElementoMovimento(peca->coluna, peca->linha + peca->cor, DESLOCAMENTO);
   inserirElementoMovimento(&lista, item);
     
-  if(primeiroMovimento) {
+  if(peca->primMov) {
     
       item = criarElementoMovimento(peca->coluna, peca->linha + (2*peca->cor), DESLOCAMENTO);
       inserirElementoMovimento(&lista, item);  
