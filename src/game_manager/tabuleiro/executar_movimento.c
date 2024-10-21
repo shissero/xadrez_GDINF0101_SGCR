@@ -15,23 +15,6 @@ void executarMovimento(struct Movimento *movimento){
 		destruirAdversaria(capturanda);
 	}
 	
-	
-	if(TABULEIRO->PecaTocada->tipoPeca == PEAO){
-	
-		struct ElementoPeca *promocao = criarElementoDama(TABULEIRO->PecaTocada->cor, TABULEIRO->PecaTocada->coluna, TABULEIRO->PecaTocada->linha);
-		
-		
-		if(TABULEIRO->vez == BRANCA && movimento->linha_destino == 8){
-		
-			removerElementoPeca(TABULEIRO->Brancas, TABULEIRO->PecaTocada)
-		}
-		else if(TABULEIRO->vez == PRETA && movimento->linha_destino == 1){
-		
-			removerElementoPeca(TABULEIRO->Pretas, TABULEIRO->PecaTocada)
-		}
-	}
-	
-	
 	TABULEIRO->PecaTocada = NULL;
 	
 	excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );

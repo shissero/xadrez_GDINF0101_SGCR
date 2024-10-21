@@ -25,7 +25,7 @@ struct ElementoMovimento *gerarMovimentos(struct Tabuleiro *tabuleiro, struct Pe
     break;
     
     case CAVALO:
-      lista = movimentosCavalo(peca);
+      lista = movimentosCavalo(tabuleiro, peca);
     break;
     
     case BISPO:

@@ -7,45 +7,136 @@
 #include "../movimentos/inserir_elemento_movimento.h"
 #include "../movimentos/remover_elemento_movimento.h"
 #include "../../globais.h"
+#include "../tabuleiro/tabuleiro.h"
+#include "../tabuleiro/buscar_aliada.h"
+#include "../tabuleiro/buscar_adversaria.h"
 
- //função para gerar movimentos do Cavalo
-struct ElementoMovimento *movimentosCavalo(struct Peca *peca) {
+  //função para gerar movimentos do Cavalo
+  struct ElementoMovimento *movimentosCavalo(struct Tabuleiro *tabuleiro, struct Peca *peca) {
     
     struct ElementoMovimento *lista = NULL;
     struct ElementoMovimento *aux_item;
-  
-        // Cima-esquerda
+    
+    // Cima-esquerda
+    struct Peca *aux_ali = buscarAliada(tabuleiro, peca->coluna - 1, peca->linha + 2);
+    struct Peca *aux_adv = buscarAdversaria(tabuleiro, peca->coluna - 1, peca->linha + 2);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+        
         aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha + 2, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item);
+        inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha + 2, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Cima-direita
+    // Cima-direita
+    aux_ali = buscarAliada(tabuleiro, peca->coluna + 1, peca->linha + 2);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna + 1, peca->linha + 2);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+        
         aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha + 2, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item); 
+	inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha + 2, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Baixo-esquerda
+    // Baixo-esquerda
+    aux_ali = buscarAliada(tabuleiro, peca->coluna - 1, peca->linha - 2);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna - 1, peca->linha - 2);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)) {
+    
         aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha - 2, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item); 
+	inserirElementoMovimento(&lista, aux_item);
+	
+	if(aux_adv != NULL) {
+        
+            aux_item = criarElementoMovimento(peca->coluna - 1, peca->linha - 2, CAPTURA);
+            inserirElementoMovimento(&lista, aux_item);
+        }
+    }
     
-        // Baixo-direita
+    // Baixo-direita
+    aux_ali = buscarAliada(tabuleiro, peca->coluna + 1, peca->linha - 2);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna + 1, peca->linha - 2);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+    
         aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha - 2, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item); 
+	inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna + 1, peca->linha - 2, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Esquerda-cima
+    // Esquerda-cima
+    aux_ali = buscarAliada(tabuleiro, peca->coluna - 2, peca->linha + 1);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna - 2, peca->linha + 1);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+    
         aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha + 1, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item); 
+	inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha + 1, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Esquerda-baixo
+    // Esquerda-baixo
+    aux_ali = buscarAliada(tabuleiro, peca->coluna - 2, peca->linha - 1);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna - 2, peca->linha - 1);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+    
         aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha - 1, DESLOCAMENTO);
-	inserirElementoMovimento(&lista, aux_item);  
+	inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna - 2, peca->linha - 1, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Direita-cima
+    // Direita-cima
+    aux_ali = buscarAliada(tabuleiro, peca->coluna + 2, peca->linha + 1);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna + 2, peca->linha + 1);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+    
         aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha + 1, DESLOCAMENTO);
 	inserirElementoMovimento(&lista, aux_item);
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha + 1, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
-        // Direita-baixo
+    // Direita-baixo
+    aux_ali = buscarAliada(tabuleiro, peca->coluna + 2, peca->linha - 1);
+    aux_adv = buscarAdversaria(tabuleiro, peca->coluna + 2, peca->linha - 1);
+    
+    if((aux_ali == NULL) && (aux_adv == NULL)){
+    
         aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha - 1, DESLOCAMENTO);
 	inserirElementoMovimento(&lista, aux_item);
-  
+    }
+    if(aux_adv != NULL) {
+        
+        aux_item = criarElementoMovimento(peca->coluna + 2, peca->linha - 1, CAPTURA);
+        inserirElementoMovimento(&lista, aux_item);
+    }
     
     
     struct ElementoMovimento *aux_lista = lista;
