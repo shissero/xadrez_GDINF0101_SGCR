@@ -16,8 +16,8 @@ void inicializarPeca (struct Peca *ptrpeca, int tipoPeca, int cor, int coluna, i
     
     	ptrpeca->tipoPeca = tipoPeca;
     	ptrpeca->cor = cor;
-    	ptrpeca->posicao[0] = coluna;
-    	ptrpeca->posicao[1] = linha;
+    	ptrpeca->coluna = coluna;
+    	ptrpeca->linha = linha;
     	ptrpeca->primMov = primeiroMovimento;
     	
     	// As constantes de sprite estão na mesma ordem que as constantes de peça

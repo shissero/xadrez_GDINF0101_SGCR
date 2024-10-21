@@ -13,4 +13,6 @@ struct VolumeProjecaoOrto {
 
 extern struct VolumeProjecaoOrto TELA_TABULEIRO;
 
+extern float TAM_CASA;
+
 #endif

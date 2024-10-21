@@ -2,7 +2,8 @@
 #define MOVIMENTOS_REI_H_
 
 #include"peca.h"
+#include "../tabuleiro/tabuleiro.h"
 
-void movimentosRei(int, int);
+struct ElementoMovimento *movimentosRei(struct Tabuleiro *tabuleiro, struct Peca *peca);
 
 #endif

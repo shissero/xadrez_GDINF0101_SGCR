@@ -4,7 +4,7 @@
 # Vocês podem adicionar quantos arquivos quiserem, desde que usem espaços para separar cada nome e não removam nenhum dos que já estão na lista
 # $(wildcard alguma_pasta/*.c) vai adicionar todos os arquivos .c da pasta "alguma_pasta"
 
-SRC_MAIN := testes.c	
+SRC_MAIN := main.c	
 	#############################################
 	# Fontes na pasta source 
 PATH_SRC := src
@@ -38,7 +38,7 @@ SRCS_MOVIMENTOS := $(wildcard $(PATH_MOVIMENTOS)/*.c)
 			#############################################
 			# Fontes na pasta peca
 PATH_PECAS := src/game_manager/peca
-SRCS_PECAS := src/game_manager/peca/inicializar_peca.c #$(wildcard $(PATH_PECAS)/*.c)
+SRCS_PECAS := $(wildcard $(PATH_PECAS)/*.c)
 
 
 				#############################################
@@ -71,7 +71,7 @@ SRCS_UTILITARIOS := $(wildcard $(PATH_UTILITARIOS)/*.c)
 	
 	#############################################
 	# Cabeçalhos na pasta source
-HDRS_SRC := $(wildcard src/$(PATH_SRC)/*.h)
+HDRS_SRC := $(wildcard $(PATH_SRC)/*.h)
 
 
 		#############################################
@@ -126,7 +126,7 @@ HDRS_TODOS := $(HDRS_SRC) $(HDRS_UTILITARIOS) $(HDRS_INTERFACE) $(HDRS_DEBUG) $(
 # Aqui ficam os arquivos objeto. Eles serão criados pelo makefile, mas precisam ter seus nomes especificados. As regras são as mesmas
 # $(patsubst alguma_pasta/%.c,build/%.o,$(OBJS)) vai pegar os arquivos na lista de arquivos OBJS e testar se se são arquivos .c da pasta "alguma_pasta". Se sim, o nome do arquivo vai ser usado  como nome do arquivo objeto, que vai ser criado na pasta build
 
-OBJS_MAIN := build/testes.o
+OBJS_MAIN := build/main.o
 
 	#############################################
 	# Objetos da pasta source

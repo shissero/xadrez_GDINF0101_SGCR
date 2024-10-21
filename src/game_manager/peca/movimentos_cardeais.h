@@ -2,7 +2,8 @@
 #define MOVIMENTOS_CARDEAIS_H_
 
 #include"peca.h"
+#include "../tabuleiro/tabuleiro.h"
 
-void movimentosCardeais (int, int);
+struct ElementoMovimento *movimentosCardeais (struct Tabuleiro *, struct Peca *, int);
 
 #endif
