@@ -6,7 +6,7 @@
 #include"../../globais.h"
 
 
-struct ElementoMovimento *movimentosTorre(struct Peca *peca) {
+struct ElementoMovimento *movimentosTorre(struct Tabuleiro *tabuleiro, struct Peca *peca) {
 
-  return movimentosCardeais(peca->coluna, peca->linha, FALSO);
+  return movimentosCardeais(tabuleiro, peca, 0);
 }
