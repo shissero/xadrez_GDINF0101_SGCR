@@ -17,11 +17,11 @@ struct ElementoMovimento *gerarMovimentos(struct Tabuleiro *tabuleiro, struct Pe
     switch(peca->tipoPeca){
     
     case PEAO:
-      lista = movimentosPeao(peca);
+      lista = movimentosPeao(tabuleiro, peca);
     break;
     
     case TORRE:
-      lista = movimentosTorre(peca);
+      lista = movimentosTorre(tabuleiro, peca);
     break;
     
     case CAVALO:

@@ -16,7 +16,7 @@
 struct ElementoMovimento *movimentosDama(struct Tabuleiro *tabuleiro, struct Peca *peca) {
       
     
-    struct ElementoMovimento *lista1 = movimentosCardeais(peca->coluna, peca->linha, 0);
+    struct ElementoMovimento *lista1 = movimentosCardeais(tabuleiro, peca, 0);
     struct ElementoMovimento *lista2 = movimentosColaterais(tabuleiro, peca, 0);
     struct ElementoMovimento *aux = lista2;
     

@@ -14,9 +14,8 @@
 
  //função para gerar movimentos do Rei
 struct ElementoMovimento *movimentosRei(struct Tabuleiro *tabuleiro, struct Peca *peca) {
-    
-    
-    struct ElementoMovimento *lista1 = movimentosCardeais(peca->coluna, peca->linha, 1);
+       
+    struct ElementoMovimento *lista1 = movimentosCardeais(tabuleiro, peca, 1);
     struct ElementoMovimento *lista2 = movimentosColaterais(tabuleiro, peca, 1);
     struct ElementoMovimento *aux = lista2;
     
