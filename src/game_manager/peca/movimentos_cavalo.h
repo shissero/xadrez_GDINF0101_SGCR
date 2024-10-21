@@ -2,7 +2,8 @@
 #define MOVIMENTOS_CAVALO_H_
 
 #include"peca.h"
+#include "../tabuleiro/tabuleiro.h"
 
-struct ElementoMovimento *movimentosCavalo (struct Peca*);
+struct ElementoMovimento *movimentosCavalo (struct Tabuleiro *, struct Peca *);
 
 #endif

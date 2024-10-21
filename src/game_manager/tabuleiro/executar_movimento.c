@@ -15,7 +15,6 @@ void executarMovimento(struct Movimento *movimento){
 		destruirAdversaria(capturanda);
 	}
 	
-	
 	TABULEIRO->PecaTocada = NULL;
 	
 	excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );

@@ -6,21 +6,47 @@
 #include "../movimentos/elemento_movimento.h"
 #include "../movimentos/inserir_elemento_movimento.h"
 #include "peca.h"
+#include "../tabuleiro/tabuleiro.h"
+#include "../tabuleiro/buscar_aliada.h"
+#include "../tabuleiro/buscar_adversaria.h"
 
-struct ElementoMovimento *movimentosPeao(struct Peca *peca) {
-
+struct ElementoMovimento *movimentosPeao(struct Tabuleiro *tabuleiro, struct Peca *peca) {
+ 
   struct ElementoMovimento *lista = NULL;
   struct ElementoMovimento *item;
+  struct Peca *auxAli = buscarAliada(tabuleiro, peca->coluna, peca->linha + peca->cor);
+  struct Peca *auxAdv = buscarAdversaria(tabuleiro, peca->coluna, peca->linha + peca->cor);
+ 
+  if((auxAli == NULL) && (auxAdv == NULL)){
+      
+      item = criarElementoMovimento(peca->coluna, peca->linha + peca->cor, DESLOCAMENTO);
+      inserirElementoMovimento(&lista, item);
+      
+      auxAli = buscarAliada(tabuleiro, peca->coluna, peca->linha + 2*(peca->cor));
+      auxAdv = buscarAdversaria(tabuleiro, peca->coluna, peca->linha + 2*(peca->cor));
+      
+      if((auxAli == NULL) && (auxAdv == NULL) && peca->primMov){
+      
+          item = criarElementoMovimento(peca->coluna, peca->linha + 2*(peca->cor), DESLOCAMENTO);
+          inserirElementoMovimento(&lista, item);
+      }
+  }
   
-  //Quando o peão chega aos limites do tabuleiro ele vira outra peça, portanto não se faz necessário checar os limites
-  item = criarElementoMovimento(peca->coluna, peca->linha + peca->cor, DESLOCAMENTO);
-  inserirElementoMovimento(&lista, item);
-    
-  if(peca->primMov) {
-    
-      item = criarElementoMovimento(peca->coluna, peca->linha + (2*peca->cor), DESLOCAMENTO);
-      inserirElementoMovimento(&lista, item);  
-  } 
+  auxAdv = buscarAdversaria(tabuleiro, peca->coluna + 1, peca->linha + peca->cor);
+  if(auxAdv != NULL){
+      
+      item = criarElementoMovimento(peca->coluna + 1, peca->linha + peca->cor, CAPTURA);
+      inserirElementoMovimento(&lista, item);
+  
+  }
+  
+  auxAdv = buscarAdversaria(tabuleiro, peca->coluna - 1, peca->linha + peca->cor);
+  if(auxAdv != NULL){
+  
+      item = criarElementoMovimento(peca->coluna - 1, peca->linha + peca->cor, CAPTURA);
+      inserirElementoMovimento(&lista, item);
+  
+  }
   
   return lista;
 }

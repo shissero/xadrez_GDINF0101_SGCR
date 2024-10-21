@@ -18,7 +18,7 @@
 //movimentos cardeais
   
   //norte
-  for (int i = 1; linha + i <= 8; i++) {
+  for (int i = 1; peca->linha + i <= 8; i++) {
     
     if(buscarAliada(tabuleiro, peca->coluna, peca->linha + i) != NULL) break;
     
@@ -30,7 +30,7 @@
         
     }else{
     
-        item = criarElementoMovimento(coluna, linha + i, DESLOCAMENTO);
+        item = criarElementoMovimento(peca->coluna, peca->linha + i, DESLOCAMENTO);
         inserirElementoMovimento (&lista, item);
     }
     
@@ -38,7 +38,7 @@
   };
   
   //sul 
-  for (int i = 1; linha - i >= 1; i++) {
+  for (int i = 1; peca->linha - i >= 1; i++) {
     
     if(buscarAliada(tabuleiro, peca->coluna, peca->linha - i) != NULL) break;
     
@@ -50,7 +50,7 @@
         
     }else{
     
-        item = criarElementoMovimento(coluna, linha - i, DESLOCAMENTO);
+        item = criarElementoMovimento(peca->coluna, peca->linha - i, DESLOCAMENTO);
         inserirElementoMovimento (&lista, item);
     }
     
@@ -58,7 +58,7 @@
   };
   
   //leste
-  for (int i = 1; coluna + i <= 8; i++) {
+  for (int i = 1; peca->coluna + i <= 8; i++) {
     
     if(buscarAliada(tabuleiro, peca->coluna + i, peca->linha) != NULL) break;
     
@@ -70,7 +70,7 @@
         
     }else{
     
-        item = criarElementoMovimento(coluna + i, linha, DESLOCAMENTO);
+        item = criarElementoMovimento(peca->coluna + i, peca->linha, DESLOCAMENTO);
         inserirElementoMovimento (&lista, item);
     }
     
@@ -78,7 +78,7 @@
   };
   
   //oeste
-  for (int i = 1; coluna - i >= 1; i++) {
+  for (int i = 1; peca->coluna - i >= 1; i++) {
     
     if(buscarAliada(tabuleiro, peca->coluna - i, peca->linha) != NULL) break;
     
@@ -90,7 +90,7 @@
         
     }else{
     
-        item = criarElementoMovimento(coluna - i, linha, DESLOCAMENTO);
+        item = criarElementoMovimento(peca->coluna - i, peca->linha, DESLOCAMENTO);
         inserirElementoMovimento (&lista, item);
     }
     

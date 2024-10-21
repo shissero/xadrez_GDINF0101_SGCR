@@ -23,14 +23,7 @@ void administradorJogo(int coluna, int linha){
 		}
 		else{
 		
-			printf("\n\nEste não é um movimento possível\n\n");
-			
 			tocarPeca(coluna, linha);
-			
-			if( TABULEIRO->PecaTocada != NULL ){
-			
-				printf("\n\nVocê clicou numa aliada\n\n");
-			}
 		}
 	}
 		
