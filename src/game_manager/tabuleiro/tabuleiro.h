@@ -11,8 +11,7 @@ struct Tabuleiro {
 	struct ElementoPeca *Pretas;
 	struct ElementoPeca *Brancas;
 	
-	struct ElementoPeca *Aliadas;	// Aliadas e Adversarias dizem respeito a qual time está jogando nesse momento
-	struct ElementoPeca *Adversarias;
+	int vez;
 	
 	struct Peca *PecaTocada;
 	struct ElementoMovimento *MovimentosPecaTocada;

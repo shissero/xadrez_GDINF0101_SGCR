@@ -5,5 +5,12 @@
 // Retorna um ponteiro para a peça encontrada ou NULL, se não achar nada
 struct Peca *buscarAliada(struct Tabuleiro *tabuleiro, int coluna, int linha){
 
-	return buscarPeca(tabuleiro->Aliadas, coluna, linha);
+	if(tabuleiro->vez == BRANCA){
+        
+        	return buscarPeca(tabuleiro->Brancas, coluna, linha);
+        }
+        else{
+        
+        	return buscarPeca(tabuleiro->Pretas, coluna, linha);
+        }
 }

@@ -8,8 +8,10 @@ struct Tabuleiro *criarTabuleiroTeste(struct ElementoPeca *time1, struct Element
 	novo->Pretas = time2;
 	novo->Brancas = time1;
 	
-	novo->Aliadas = novo->Brancas;
-	novo->Adversarias = novo->Pretas;
+	novo->vez = BRANCA;
+	
+	novo->PecaTocada = NULL;
+	novo->MovimentosPecaTocada = NULL;
 	
 	return novo;
 }

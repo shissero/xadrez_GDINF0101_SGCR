@@ -11,8 +11,10 @@ struct Tabuleiro *criarTabuleiro(){
 	novo->Pretas = criarTime(PRETA);
 	novo->Brancas = criarTime(BRANCA);
 	
-	novo->Aliadas = novo->Brancas;
-	novo->Adversarias = novo->Pretas;
+	novo->vez = BRANCA;
+	
+	novo->PecaTocada = NULL;
+	novo->MovimentosPecaTocada = NULL;
 	
 	return novo;
 }
