@@ -10,6 +10,7 @@
 #include"../peca/peca.h"
 #include"../peca/elemento_peca/remover_elemento_peca_pos.h"
 #include"buscar_adversaria.h"
+#include"destruir_adversaria.h"
 
 void executarMovimento(struct Movimento*);
 

@@ -11,19 +11,32 @@ void executarMovimento(struct Movimento *movimento){
 	
 	if(movimento->natureza == CAPTURA){
 	
-		removerElementoPecaPos( TABULEIRO->Adversarias, movimento->coluna_destino, movimento->linha_destino, VERDADEIRO);
+		struct Peca *capturanda = buscarAdversaria(TABULEIRO, movimento->coluna_destino, movimento->linha_destino);
+		destruirAdversaria(capturanda);
 	}
 	
 	
+	if(TABULEIRO->PecaTocada->tipoPeca == PEAO){
 	
-	//struct ElementoPeca *intermediaria = TABULEIRO->Adversarias;
+		struct ElementoPeca *promocao = criarElementoDama(TABULEIRO->PecaTocada->cor, TABULEIRO->PecaTocada->coluna, TABULEIRO->PecaTocada->linha);
+		
+		
+		if(TABULEIRO->vez == BRANCA && movimento->linha_destino == 8){
+		
+			removerElementoPeca(TABULEIRO->Brancas, TABULEIRO->PecaTocada)
+		}
+		else if(TABULEIRO->vez == PRETA && movimento->linha_destino == 1){
+		
+			removerElementoPeca(TABULEIRO->Pretas, TABULEIRO->PecaTocada)
+		}
+	}
 	
-	//TABULEIRO->Adversarias = TABULEIRO->Aliadas;
-	//TABULEIRO->Aliadas = intermediaria;
 	
-	//TABULEIRO->PecaTocada = NULL;
+	TABULEIRO->PecaTocada = NULL;
 	
-	//excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );
+	excluirListaMovimentos( &(TABULEIRO->MovimentosPecaTocada) );
+	
+	TABULEIRO->vez *= -1;
 	
 	glutPostRedisplay();
 }

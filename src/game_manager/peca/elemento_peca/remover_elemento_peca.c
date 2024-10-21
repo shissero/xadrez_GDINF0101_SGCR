@@ -1,7 +1,7 @@
 #include"remover_elemento_peca.h"
 
 // Se excluir for verdadeiro, além de remover item de lista, esta função também libera seu espaço na memória
-void removerElementoPeca(struct ElementoPeca **lista, struct ElementoPeca *item, int excluir) {
+void removerElementoPeca(struct ElementoPeca **lista, struct Peca *item, int excluir) {
   
 	if ( *lista != NULL) {
     
@@ -15,7 +15,7 @@ void removerElementoPeca(struct ElementoPeca **lista, struct ElementoPeca *item,
 		
 		while (aux != NULL) {
 		
-			if(aux == item){
+			if(aux->peca == item){
 			
 				struct ElementoPeca *anterior = aux->ant;
 				struct ElementoPeca *proximo = aux->prox;

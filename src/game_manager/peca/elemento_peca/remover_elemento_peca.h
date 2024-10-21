@@ -6,6 +6,6 @@
 
 #include"elemento_peca.h"
 
-void removerElementoPeca(struct ElementoPeca**, struct ElementoPeca*, int);
+void removerElementoPeca(struct ElementoPeca**, struct Peca*, int);
 
 #endif
